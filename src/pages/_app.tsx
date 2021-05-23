@@ -1,0 +1,17 @@
+import type { AppProps } from 'next/app'
+import { ThemeProvider } from 'styled-components'
+
+import { site } from '@/config/site'
+import GlobalStyle from '@/styles/global'
+import theme from '@/styles/theme'
+
+const App = ({ Component, pageProps }: AppProps) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} site={site} />
+      <GlobalStyle />
+    </ThemeProvider>
+  )
+}
+
+export default App
