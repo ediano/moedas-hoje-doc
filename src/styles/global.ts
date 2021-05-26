@@ -11,6 +11,11 @@ export default createGlobalStyle`
     -webkit-tap-highlight-color: transparent;
   }
 
+  html, body, #__next {
+    height: 100%;
+    font-size: 65%;
+  }
+
   body {
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
