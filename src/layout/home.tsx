@@ -14,13 +14,13 @@ export const Home = ({ children, site }: Props) => {
   return (
     <>
       <Head>
-        <title>
+        <Head>
           {site.description} | {site.title}
-        </title>
+        </Head>
       </Head>
 
-      <Header isHome />
-
+      <Header site={site} isHome />
+      <div>flsdklfksçdlkflçdskl</div>
       {children}
 
       <Footer />

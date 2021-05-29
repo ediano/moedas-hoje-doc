@@ -11,18 +11,19 @@ export default createGlobalStyle`
     -webkit-tap-highlight-color: transparent;
   }
 
+  html {
+    font-size: 65%;
+  }
+
   html, body, #__next {
     height: 100%;
-    font-size: 65%;
   }
 
   body {
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
-  }
-
-  body {
-    font-weight: 300
+    font-size: ${props => props.theme.fonts.sizes.xs};
+    font-weight: 300;
   }
 
   body,
@@ -30,7 +31,6 @@ export default createGlobalStyle`
   textarea,
   button,
   code {
-    font-family: Roboto, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
-      Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: ${props => props.theme.fonts.family};
   }
 `
