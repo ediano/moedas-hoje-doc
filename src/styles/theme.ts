@@ -20,8 +20,7 @@ const theme = {
     md: '2.2rem',
     lg: '3.2rem',
     xl: '4rem',
-    xxl: '5rem',
-    size: (size: number) => `${size}rem`
+    xxl: '5rem'
   },
   border: {
     xxs: '0.2rem',
@@ -30,8 +29,7 @@ const theme = {
     md: '1.6rem',
     lg: '2.6rem',
     xl: '3.2rem',
-    xxl: '5rem',
-    size: (size: number) => `${size}rem`
+    xxl: '5rem'
   },
   fonts: {
     family: `Roboto, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
@@ -43,8 +41,7 @@ const theme = {
       md: '2.6rem',
       lg: '3.4rem',
       xl: '4.2rem',
-      xxl: '5rem',
-      size: (size: number) => `${size}rem`
+      xxl: '5rem'
     }
   }
 }

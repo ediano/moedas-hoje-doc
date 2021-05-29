@@ -20,8 +20,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${props => props.theme.colors.background};
-    color: ${props => props.theme.colors.text};
+    background: ${props => props.theme.colors.ice};
+    color: ${props => props.theme.colors.secondary};
     font-size: ${props => props.theme.fonts.sizes.xs};
     font-weight: 300;
   }

@@ -18,8 +18,8 @@ export const container = css`
 
 export const grid = {
   lessThan: (size: Keys, styles: FlattenSimpleInterpolation) => {
-    return `
-      @media (min-width: ${keys[size] || size}) {
+    return css`
+      @media (max-width: ${keys[size] || size}) {
         ${styles}
       }
     `
@@ -30,18 +30,17 @@ export const grid = {
     lastSize: Keys,
     styles: FlattenSimpleInterpolation
   ) => {
-    return `
-      @media (min-width: ${keys[firstSize] || firstSize}) and (max-width: ${
-      keys[lastSize] || lastSize
-    }) {
+    return css`
+      @media (min-width: ${keys[firstSize] ||
+        firstSize}) and (max-width: ${keys[lastSize] || lastSize}) {
         ${styles}
       }
     `
   },
 
   between: (size: Keys, styles: FlattenSimpleInterpolation) => {
-    return `
-      @media (max-width: ${keys[size] || size},) {
+    return css`
+      @media (min-width: ${keys[size] || size},) {
         ${styles}
       }
     `
