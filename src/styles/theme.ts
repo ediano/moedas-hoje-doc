@@ -1,17 +1,28 @@
+import { shade, lighten } from 'polished'
+
 const theme = {
   shadow:
     '0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%)',
 
   colors: {
-    background: '#222',
-    backgroundSecondary: '#f0f4f7',
-    text: '#e1e1e6',
-    textSecondary: '#1e1e16',
+    sText: shade(0.9, '#fff'),
+    lText: lighten(0.9, '#000'),
     primary: '#27a9e1',
-    secondary: '#1A484C',
+    sPrimary: shade(0.25, '#27a9e1'),
+    lPrimary: lighten(0.25, '#27a9e1'),
+    secondary: '#444',
+    sSecondary: shade(0.25, '#444'),
+    lSecondary: lighten(0.25, '#444'),
     white: '#fff',
+    sWhite: shade(0.25, '#fff'),
     black: '#000',
-    ice: '#f0f4f7'
+    lBlack: lighten(0.25, '#000'),
+    ice: '#f0f4f7',
+    sIce: shade(0.25, '#f0f4f7'),
+    lIce: lighten(0.25, '#f0f4f7'),
+    shadow: '#00000025',
+    shadow1: shade(0.25, '#00000025'),
+    shadow2: shade(0.5, '#00000025')
   },
   spacing: {
     xxs: '0.4rem',

@@ -22,7 +22,7 @@ export const Home = ({ children, screenFull }: Props) => {
         </title>
       </Head>
 
-      <Header isHome>
+      <Header>
         <ScreenFull {...screenFull} />
       </Header>
 

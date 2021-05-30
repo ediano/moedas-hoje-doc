@@ -5,14 +5,13 @@ import Nav from '@/components/Nav'
 import * as S from './style'
 
 type Props = {
-  isHome?: boolean
   children: ReactNode
 }
 
-export const Header = ({ isHome, children }: Props) => {
+export const Header = ({ children }: Props) => {
   return (
     <S.Header>
-      <Nav isHome={isHome} />
+      <Nav />
 
       {children}
     </S.Header>

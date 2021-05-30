@@ -3,9 +3,10 @@ import ReactMarkdown from 'react-markdown'
 import Image from '@/components/Image'
 import Button from '@/components/Button'
 
-import { SectionScreenFull } from 'src/types/home'
+import { SectionScreenFull } from 'src/types/content'
 
 import * as S from './styles'
+import React from 'react'
 
 type Props = SectionScreenFull
 
@@ -19,24 +20,28 @@ const ScreenFull = ({
   return (
     <S.Container>
       <S.Wrapper>
-        <S.Title>{catchphrase}</S.Title>
-
-        <S.ContentGroup>
-          <S.Image>
+        {image?.map(img => (
+          <S.Image key={img.alt}>
             <Image
-              src={image}
-              alt="Picture of the author"
-              width={496}
-              height={368}
+              src={img.src}
+              alt={img.alt}
+              width={img.width}
+              height={img.height}
             />
+
+            <S.Coins>
+              <S.Dollar />
+              <S.Bitcoin />
+              <S.Ethereum />
+            </S.Coins>
           </S.Image>
+        ))}
 
-          <S.Content>
-            <ReactMarkdown children={description} />
-
-            <Button href={pageUrl}>{button}</Button>
-          </S.Content>
-        </S.ContentGroup>
+        <S.Content>
+          <h1>{catchphrase}</h1>
+          <ReactMarkdown children={description} />
+          <Button href={pageUrl}>{button}</Button>
+        </S.Content>
       </S.Wrapper>
     </S.Container>
   )

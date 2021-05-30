@@ -1,6 +1,6 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components'
 
-const keys = {
+const sizes = {
   xs: '250px',
   sm: '450px',
   md: '768px',
@@ -8,7 +8,7 @@ const keys = {
   xlg: '1440px'
 }
 
-type Keys = keyof typeof keys
+type Sizes = keyof typeof sizes
 
 export const container = css`
   width: 90%;
@@ -17,30 +17,30 @@ export const container = css`
 `
 
 export const grid = {
-  lessThan: (size: Keys, styles: FlattenSimpleInterpolation) => {
+  lessThan: (size: Sizes, styles: FlattenSimpleInterpolation) => {
     return css`
-      @media (max-width: ${keys[size] || size}) {
+      @media (max-width: ${sizes[size] || size}) {
         ${styles}
       }
     `
   },
 
   greaterThan: (
-    firstSize: Keys,
-    lastSize: Keys,
+    firstSize: Sizes,
+    lastSize: Sizes,
     styles: FlattenSimpleInterpolation
   ) => {
     return css`
-      @media (min-width: ${keys[firstSize] ||
-        firstSize}) and (max-width: ${keys[lastSize] || lastSize}) {
+      @media (min-width: ${sizes[firstSize] ||
+        firstSize}) and (max-width: ${sizes[lastSize] || lastSize}) {
         ${styles}
       }
     `
   },
 
-  between: (size: Keys, styles: FlattenSimpleInterpolation) => {
+  between: (size: Sizes, styles: FlattenSimpleInterpolation) => {
     return css`
-      @media (min-width: ${keys[size] || size},) {
+      @media (min-width: ${sizes[size] || size},) {
         ${styles}
       }
     `
