@@ -6,7 +6,7 @@ import ScreenFull from '@/components/ScreenFull'
 import { site } from '@/config/site'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { SectionScreenFull } from '@/types/home'
+import { SectionScreenFull } from '@/types/content'
 
 type Props = {
   children: ReactNode
