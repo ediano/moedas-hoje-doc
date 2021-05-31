@@ -13,18 +13,24 @@ export type SectionScreenFull = {
   pageUrl: string
 }
 
-type ExchangeProps = {
+type WhatWweDoProps = {
   title: string
   link: string
 }
 
-export type SectionExchange = {
-  description: string
-  list: ExchangeProps[]
+export type SectionWhatWweDo = {
+  list: WhatWweDoProps[]
   body: string
+}
+
+export type SectionLimitAndDelay = {
+  catchphrase: string
+  limit: string
+  delay: string
 }
 
 export type HomeProps = {
   screenFull: SectionScreenFull
-  exchange: SectionExchange
+  whatWweDo: SectionWhatWweDo
+  limitAndDelay: SectionLimitAndDelay
 }

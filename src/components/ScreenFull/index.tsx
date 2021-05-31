@@ -22,12 +22,7 @@ const ScreenFull = ({
       <S.Wrapper>
         {image?.map(img => (
           <S.Image key={img.alt}>
-            <Image
-              src={img.src}
-              alt={img.alt}
-              width={img.width}
-              height={img.height}
-            />
+            <Image {...img} />
 
             <S.Coins>
               <S.Dollar />

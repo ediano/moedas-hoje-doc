@@ -1,21 +1,24 @@
 import { GetStaticProps } from 'next'
 
 import { Home } from '@/layout/home'
-import Exchange from '@/components/Home/Exchange'
+import WhatWweDo from '@/components/Home/WhatWweDo'
+import LimitAndDelay from '@/components/Home/LimitAndDelay'
 
 import {
   HomeProps,
   Attributes,
   SectionScreenFull,
-  SectionExchange
+  SectionWhatWweDo,
+  SectionLimitAndDelay
 } from '@/types/content'
 
 type Props = HomeProps
 
-const Index = ({ screenFull, exchange }: Props) => {
+const Index = ({ screenFull, whatWweDo, limitAndDelay }: Props) => {
   return (
     <Home screenFull={screenFull}>
-      <Exchange {...exchange} />
+      <WhatWweDo {...whatWweDo} />
+      <LimitAndDelay {...limitAndDelay} />
     </Home>
   )
 }
@@ -25,14 +28,19 @@ export const getStaticProps: GetStaticProps = async () => {
     'content/home/screen-full.md'
   )) as Attributes<SectionScreenFull>
 
-  const { attributes: exchange, body: bodyExchange } = (await import(
-    'content/home/exchanges.md'
-  )) as Attributes<SectionExchange>
+  const { attributes: whatWweDo, body: bodyWhatWweDo } = (await import(
+    'content/home/what-we-do.md'
+  )) as Attributes<SectionWhatWweDo>
+
+  const { attributes: limitAndDelay } = (await import(
+    'content/home/limits-and-delays.md'
+  )) as Attributes<SectionLimitAndDelay>
 
   return {
     props: {
       screenFull,
-      exchange: { ...exchange, body: bodyExchange }
+      whatWweDo: { ...whatWweDo, body: bodyWhatWweDo },
+      limitAndDelay
     }
   }
 }
