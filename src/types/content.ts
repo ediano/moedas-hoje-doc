@@ -29,8 +29,21 @@ export type SectionLimitAndDelay = {
   delay: string
 }
 
+type LinkDeployAndCdn = {
+  title: string
+  link: string
+  icon?: string
+}
+
+export type SectionDeployAndCdn = {
+  catchphrase: string
+  description: string
+  links: LinkDeployAndCdn[]
+}
+
 export type HomeProps = {
   screenFull: SectionScreenFull
   whatWweDo: SectionWhatWweDo
   limitAndDelay: SectionLimitAndDelay
+  deployAndCdn: SectionDeployAndCdn
 }

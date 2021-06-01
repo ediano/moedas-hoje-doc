@@ -1,13 +1,14 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
-  * {
+  *, *:before, *:after {
     margin: 0;
     padding: 0;
     outline: none;
     border: none;
     text-decoration: none;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
   }
 

@@ -67,8 +67,8 @@ export const BankFill = styled.div`
 `
 
 export const IcoBankFill = styled(RiBankFill)`
-  width: 100%;
-  height: 100%;
+  width: 75%;
+  height: 75%;
 `
 
 export const ListExchange = styled.div`
