@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components'
-import { container, grid } from '@/styles/layout'
+import { row, container, grid } from '@/styles/layout'
 
 export const Container = styled.section`
+  ${row}
+
   ${({ theme }) => css`
     background: ${theme.colors.black};
     color: ${theme.colors.white};

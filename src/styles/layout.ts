@@ -10,6 +10,16 @@ const sizes = {
 
 type Sizes = keyof typeof sizes
 
+export const row = css`
+  display: flow-root;
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+`
+
 export const container = css`
   width: 90%;
   max-width: 1200px;

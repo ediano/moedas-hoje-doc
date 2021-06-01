@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components'
 import { shade } from 'polished'
 import { RiBankFill } from 'react-icons/ri'
-
-import { container, grid } from '@/styles/layout'
+import { row, container, grid } from '@/styles/layout'
 
 export const Container = styled.section`
+  ${row}
+
   ${({ theme }) => css`
     background: ${theme.colors.primary};
   `}
