@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { MdMenu } from 'react-icons/md'
+import { RiCoinsLine } from 'react-icons/ri'
 
 import { site } from '@/config/site'
 import { listLinks } from './listLinks'
@@ -33,7 +34,9 @@ const Nav = () => {
         <S.Wrapper>
           <S.Logo>
             <Link href={site.url} passHref>
-              <S.LogoLink>{site.acronyms}</S.LogoLink>
+              <S.LogoLink>
+                <RiCoinsLine />: Doc
+              </S.LogoLink>
             </Link>
           </S.Logo>
 

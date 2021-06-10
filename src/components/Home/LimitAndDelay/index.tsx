@@ -11,13 +11,13 @@ const LimitAndDelay = ({ catchphrase, limit, delay }: Props) => {
       <S.Wrapper>
         <S.Content>
           <h1>{catchphrase}</h1>
-          <ReactMarkdown className="limit" children={limit} />
-          <ReactMarkdown className="delay" children={delay} />
+          <ReactMarkdown children={limit} />
+          <ReactMarkdown children={delay} />
         </S.Content>
 
-        <S.TimeTrap>
-          <S.IcoTimeTrap />
-        </S.TimeTrap>
+        <S.Overtime>
+          <S.IcoOvertime />
+        </S.Overtime>
       </S.Wrapper>
     </S.Container>
   )

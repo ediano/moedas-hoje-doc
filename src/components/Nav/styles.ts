@@ -34,11 +34,17 @@ export const Logo = styled.h1`
 
   ${({ theme }) => css`
     padding: 0 ${theme.spacing.sm};
-    font-size: ${theme.fonts.sizes.md};
+
+    svg {
+      font-size: ${theme.fonts.sizes.xl};
+    }
   `}
 `
 
 export const LogoLink = styled.a`
+  display: flex;
+  align-items: center;
+
   ${({ theme }) => css`
     color: ${theme.colors.primary};
   `}

@@ -8,14 +8,18 @@ import * as S from './styles'
 
 type Props = SectionDeployAndCdn
 
-const DeployAndCdn = ({ catchphrase, description, links }: Props) => {
+const DeployAndCdn = ({ catchphrase, description, links, body }: Props) => {
   return (
     <S.Container>
       <S.Wrapper>
         <S.Title>{catchphrase}</S.Title>
 
+        <S.Description>{description}</S.Description>
+
         <S.Content>
-          <ReactMarkdown>{description}</ReactMarkdown>
+          <div>
+            <ReactMarkdown children={body} />
+          </div>
 
           <S.ListContent>
             <S.Link>

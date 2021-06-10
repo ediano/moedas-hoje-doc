@@ -1,12 +1,12 @@
 import ReactMarkdown from 'react-markdown'
 
-import { SectionWhatWweDo } from '@/types/content'
+import { SectionFocusAndIdea } from '@/types/content'
 
 import * as S from './styles'
 
-type Props = SectionWhatWweDo
+type Props = SectionFocusAndIdea
 
-const WhatWweDo = ({ list, body }: Props) => {
+const FocusAndIdea = ({ list, body }: Props) => {
   return (
     <S.Container>
       <S.Wrapper>
@@ -27,12 +27,12 @@ const WhatWweDo = ({ list, body }: Props) => {
           </S.ListExchange>
         </S.Content>
 
-        <S.BankFill>
-          <S.IcoBankFill />
-        </S.BankFill>
+        <S.Idea>
+          <S.IcoFcIdea />
+        </S.Idea>
       </S.Wrapper>
     </S.Container>
   )
 }
 
-export default WhatWweDo
+export default FocusAndIdea

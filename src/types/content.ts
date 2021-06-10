@@ -13,20 +13,14 @@ export type SectionScreenFull = {
   pageUrl: string
 }
 
-type WhatWweDoProps = {
+type FocusAndIdeaProps = {
   title: string
   link: string
 }
 
-export type SectionWhatWweDo = {
-  list: WhatWweDoProps[]
+export type SectionFocusAndIdea = {
+  list: FocusAndIdeaProps[]
   body: string
-}
-
-export type SectionLimitAndDelay = {
-  catchphrase: string
-  limit: string
-  delay: string
 }
 
 type LinkDeployAndCdn = {
@@ -39,11 +33,18 @@ export type SectionDeployAndCdn = {
   catchphrase: string
   description: string
   links: LinkDeployAndCdn[]
+  body: string
+}
+
+export type SectionLimitAndDelay = {
+  catchphrase: string
+  limit: string
+  delay: string
 }
 
 export type HomeProps = {
   screenFull: SectionScreenFull
-  whatWweDo: SectionWhatWweDo
-  limitAndDelay: SectionLimitAndDelay
+  focusAndIdea: SectionFocusAndIdea
   deployAndCdn: SectionDeployAndCdn
+  limitAndDelay: SectionLimitAndDelay
 }

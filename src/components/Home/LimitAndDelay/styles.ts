@@ -1,9 +1,14 @@
 import styled, { css } from 'styled-components'
-import { GiTimeTrap } from 'react-icons/gi'
+import { FcOvertime } from 'react-icons/fc'
 import { row, container, grid } from '@/styles/layout'
 
 export const Container = styled.section`
   ${row}
+
+  ${({ theme }) => css`
+    background: ${theme.colors.black};
+    color: ${theme.colors.white};
+  `}
 `
 
 export const Wrapper = styled.div`
@@ -14,6 +19,8 @@ export const Wrapper = styled.div`
 
   ${({ theme }) => css`
     padding: ${theme.spacing.xl} 0;
+    margin-top: ${theme.spacing.lg};
+    margin-bottom: ${theme.spacing.lg};
   `}
 
   ${grid.lessThan(
@@ -53,7 +60,7 @@ export const Content = styled.div`
   )}
 `
 
-export const TimeTrap = styled.div`
+export const Overtime = styled.div`
   width: 100%;
   max-width: 40%;
   display: flex;
@@ -70,11 +77,11 @@ export const TimeTrap = styled.div`
   )}
 `
 
-export const IcoTimeTrap = styled(GiTimeTrap)`
-  width: 75%;
-  height: 75%;
+export const IcoOvertime = styled(FcOvertime)`
+  width: 150px;
+  height: 150px;
 
   ${({ theme }) => css`
-    fill: ${theme.colors.lBlack};
+    fill: ${theme.colors.sWhite};
   `}
 `

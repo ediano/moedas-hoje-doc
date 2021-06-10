@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { shade } from 'polished'
-import { RiBankFill } from 'react-icons/ri'
+import { FcIdea } from 'react-icons/fc'
 import { row, container, grid } from '@/styles/layout'
 
 export const Container = styled.section`
@@ -16,17 +16,20 @@ export const Wrapper = styled.div`
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-direction: row-reverse;
 
   ${({ theme }) => css`
     padding: ${theme.spacing.xl} 0;
+    margin-top: ${theme.spacing.xxl};
+    margin-bottom: ${theme.spacing.xxl};
     color: ${theme.colors.white};
   `}
 
   ${grid.lessThan(
     'lg',
     css`
-      flex-direction: column;
+      flex-direction: column-reverse;
     `
   )}
 `
@@ -36,7 +39,7 @@ export const Content = styled.div`
 
   ${({ theme }) => css`
     p {
-      text-align: justify;
+      text-align: right;
       font-size: ${theme.fonts.sizes.sm};
       margin: ${theme.spacing.sm};
     }
@@ -47,29 +50,37 @@ export const Content = styled.div`
     css`
       width: 100%;
       max-width: 700px;
+
+      p {
+        text-align: justify;
+      }
     `
   )}
 `
 
-export const BankFill = styled.div`
-  width: 25%;
+export const Idea = styled.div`
+  width: 100%;
+  max-width: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
   text-align: center;
-
-  ${grid.lessThan(
-    'lg',
-    css`
-      display: none;
-    `
-  )}
 `
 
-export const IcoBankFill = styled(RiBankFill)`
-  width: 75%;
-  height: 75%;
+export const IcoFcIdea = styled(FcIdea)`
+  min-width: 150px;
+  min-height: 150px;
+
+  ${({ theme }) =>
+    css`
+      ${grid.lessThan(
+        'lg',
+        css`
+          margin-bottom: ${theme.spacing.sm};
+        `
+      )}
+    `}
 `
 
 export const ListExchange = styled.div`
