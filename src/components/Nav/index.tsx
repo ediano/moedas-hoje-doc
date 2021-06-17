@@ -35,7 +35,7 @@ const Nav = () => {
           <S.Logo>
             <Link href={site.url} passHref>
               <S.LogoLink>
-                <RiCoinsLine />: Doc
+                <RiCoinsLine /> Doc
               </S.LogoLink>
             </Link>
           </S.Logo>

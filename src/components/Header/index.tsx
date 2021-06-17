@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 import Nav from '@/components/Nav'
 
-import * as S from './style'
+import * as S from './styles'
 
 type Props = {
   children: ReactNode

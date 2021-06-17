@@ -1,7 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 
 import Image from '@/components/Image'
-import Button from '@/components/Button'
 
 import { SectionScreenFull } from 'src/types/content'
 
@@ -35,7 +34,7 @@ const ScreenFull = ({
         <S.Content>
           <h1>{catchphrase}</h1>
           <ReactMarkdown children={description} />
-          <Button href={pageUrl}>{button}</Button>
+          <S.Button href={pageUrl}>{button}</S.Button>
         </S.Content>
       </S.Wrapper>
     </S.Container>

@@ -37,7 +37,7 @@ export const Content = styled.div`
   ${({ theme }) => css`
     h1,
     p {
-      padding: 0 ${theme.spacing.lg};
+      padding: 0 ${theme.spacing.sm};
       margin-bottom: ${theme.spacing.lg};
     }
 

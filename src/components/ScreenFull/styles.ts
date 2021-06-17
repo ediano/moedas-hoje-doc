@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { container, grid } from '@/styles/layout'
 import { FaDollarSign, FaBitcoin, FaEthereum } from 'react-icons/fa'
+import ButtonBase from '@/components/Button'
 
 export const Container = styled.section`
   min-height: 500px;
@@ -147,5 +148,18 @@ export const Content = styled.div`
         }
       `
     )}
+  `}
+`
+
+export const Button = styled(ButtonBase)`
+  font-weight: 700;
+  transition: 0.4s;
+
+  ${({ theme }) => css`
+    background: ${theme.colors.sPrimary};
+
+    &:hover {
+      box-shadow: 0 0 12px 0 ${theme.colors.lBlack};
+    }
   `}
 `

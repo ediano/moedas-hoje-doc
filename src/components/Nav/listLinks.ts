@@ -5,7 +5,7 @@ export const listLinks = [
     attributes: {
       href: 'https://github.com/ediano/moedas-hoje-api',
       target: '_blank',
-      rel: 'nofollow noopener noreferrer'
+      rel: 'noopener'
     }
   },
   {
@@ -13,7 +13,7 @@ export const listLinks = [
     attributes: {
       href: 'https://api.moedashoje.com.br/',
       target: '_blank',
-      rel: 'nofollow noopener noreferrer'
+      rel: 'noopener'
     }
   }
 ]
