@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === 'development' || !process.env.SITE_URL) {
 
 export const site = {
   title: 'Moedas Hoje API',
-  acronyms: 'MH',
+  acronyms: 'M.H. DOC',
   description: 'API de cotações de moedas centralizadas e descentralizadas',
   url
 }
