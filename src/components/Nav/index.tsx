@@ -66,7 +66,7 @@ const Nav = () => {
           </S.ListWrapper>
         </S.Wrapper>
 
-        <div>aslkdjklasjdlkasjdkjaskljdklas kjjj d lajdjkla</div>
+        <div></div>
       </S.Nav>
     </S.Container>
   )

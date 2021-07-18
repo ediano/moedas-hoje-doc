@@ -5,7 +5,7 @@ import GlobalStyle from '@/styles/global'
 import ScreenFull from '@/components/ScreenFull'
 
 import { site } from '@/config/site'
-import { Header } from '@/components/Header'
+import { HeaderHome } from '@/components/HeaderHome'
 import { Footer } from '@/components/Footer'
 import { SectionScreenFull } from '@/types/content'
 
@@ -25,9 +25,9 @@ export const Home = ({ children, screenFull }: Props) => {
 
       <GlobalStyle />
 
-      <Header>
+      <HeaderHome>
         <ScreenFull {...screenFull} />
-      </Header>
+      </HeaderHome>
 
       <main>{children}</main>
 

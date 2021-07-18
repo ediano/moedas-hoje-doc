@@ -9,9 +9,13 @@ export const Container = styled.div`
 
 export const Nav = styled.nav`
   position: fixed;
-  width: 100%;
+  width: calc(100% - 300px);
   z-index: 999;
   transition: 0.4s;
+
+  ${grid.lessThan('lg')`
+    width: 100%;
+  `}
 
   ${({ theme }) => css`
     &.scroll {
