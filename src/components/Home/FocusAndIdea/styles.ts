@@ -26,12 +26,9 @@ export const Wrapper = styled.div`
     color: ${theme.colors.white};
   `}
 
-  ${grid.lessThan(
-    'lg',
-    css`
-      flex-direction: column-reverse;
-    `
-  )}
+  ${grid.lessThan('lg')`
+    flex-direction: column-reverse;
+  `}
 `
 
 export const Content = styled.div`
@@ -45,17 +42,14 @@ export const Content = styled.div`
     }
   `}
 
-  ${grid.lessThan(
-    'lg',
-    css`
-      width: 100%;
-      max-width: 700px;
+  ${grid.lessThan('lg')`
+    width: 100%;
+    max-width: 700px;
 
-      p {
-        text-align: justify;
-      }
-    `
-  )}
+    p {
+      text-align: justify;
+    }
+  `}
 `
 
 export const Idea = styled.div`
@@ -74,12 +68,9 @@ export const IcoFcIdea = styled(FcIdea)`
 
   ${({ theme }) =>
     css`
-      ${grid.lessThan(
-        'lg',
-        css`
-          margin-bottom: ${theme.spacing.sm};
-        `
-      )}
+      ${grid.lessThan('lg')`
+        margin-bottom: ${theme.spacing.sm};
+      `}
     `}
 `
 

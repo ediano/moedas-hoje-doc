@@ -39,7 +39,6 @@ const Nav = () => {
               </S.LogoLink>
             </Link>
           </S.Logo>
-
           <S.ListWrapper>
             <S.Button type="button" onClick={() => setSlideOut(!slideOut)}>
               <MdMenu />
@@ -66,6 +65,8 @@ const Nav = () => {
             ></button>
           </S.ListWrapper>
         </S.Wrapper>
+
+        <div>aslkdjklasjdlkasjdkjaskljdklas kjjj d lajdjkla</div>
       </S.Nav>
     </S.Container>
   )

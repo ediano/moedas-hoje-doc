@@ -1,4 +1,8 @@
-import { css, FlattenSimpleInterpolation } from 'styled-components'
+import {
+  css,
+  FlattenInterpolation,
+  FlattenSimpleInterpolation
+} from 'styled-components'
 
 const sizes = {
   xs: '250px',
@@ -26,33 +30,36 @@ export const container = css`
   margin: auto;
 `
 
-export const grid = {
-  lessThan: (size: Sizes, styles: FlattenSimpleInterpolation) => {
-    return css`
+function lessThan(size: Sizes) {
+  return (...styles: FlattenSimpleInterpolation) =>
+    css`
       @media (max-width: ${sizes[size] || size}) {
         ${styles}
       }
     `
-  },
+}
 
-  greaterThan: (
-    firstSize: Sizes,
-    lastSize: Sizes,
-    styles: FlattenSimpleInterpolation
-  ) => {
-    return css`
+function greaterThan(firstSize: Sizes, lastSize: Sizes) {
+  return (...styles: FlattenSimpleInterpolation) =>
+    css`
       @media (min-width: ${sizes[firstSize] ||
         firstSize}) and (max-width: ${sizes[lastSize] || lastSize}) {
         ${styles}
       }
     `
-  },
+}
 
-  between: (size: Sizes, styles: FlattenSimpleInterpolation) => {
-    return css`
-      @media (min-width: ${sizes[size] || size},) {
+function between(size: Sizes) {
+  return (...styles: FlattenSimpleInterpolation) =>
+    css`
+      @media (min-width: ${sizes[size] || size}) {
         ${styles}
       }
     `
-  }
+}
+
+export const grid = {
+  lessThan,
+  greaterThan,
+  between
 }

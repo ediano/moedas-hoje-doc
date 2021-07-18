@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import Head from 'next/head'
 
+import GlobalStyle from '@/styles/global'
 import ScreenFull from '@/components/ScreenFull'
 
 import { site } from '@/config/site'
@@ -22,11 +23,13 @@ export const Home = ({ children, screenFull }: Props) => {
         </title>
       </Head>
 
+      <GlobalStyle />
+
       <Header>
         <ScreenFull {...screenFull} />
       </Header>
 
-      {children}
+      <main>{children}</main>
 
       <Footer />
     </>

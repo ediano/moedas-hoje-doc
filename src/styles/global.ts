@@ -1,6 +1,11 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
+import { grid } from './layout'
 
-export default createGlobalStyle`
+type Props = {
+  layout?: 'home' | 'pages'
+}
+
+export default createGlobalStyle<Props>`
   *, *:before, *:after {
     margin: 0;
     padding: 0;
@@ -34,4 +39,22 @@ export default createGlobalStyle`
   code {
     font-family: ${props => props.theme.fonts.family};
   }
+
+  ${({ layout }) =>
+    layout === 'pages' &&
+    css`
+      header,
+      main,
+      footer {
+        padding-left: 300px;
+      }
+
+      ${grid.lessThan('lg')`
+          header,
+          main,
+          footer {
+            padding-left: 0;
+          }
+        `}
+    `}
 `

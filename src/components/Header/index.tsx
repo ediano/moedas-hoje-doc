@@ -5,7 +5,7 @@ import Nav from '@/components/Nav'
 import * as S from './styles'
 
 type Props = {
-  children: ReactNode
+  children?: ReactNode
 }
 
 export const Header = ({ children }: Props) => {

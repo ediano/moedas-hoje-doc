@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { shade, lighten, transparentize } from 'polished'
 import { container, grid } from '@/styles/layout'
 
-export const Container = styled.nav`
+export const Container = styled.div`
   width: 100%;
   height: 64px;
 `
@@ -79,40 +79,34 @@ export const ListContainer = styled.ul`
   height: 100%;
 
   ${({ theme }) => css`
-    ${grid.lessThan(
-      'md',
-      css`
-        background: ${theme.colors.ice};
-        display: block;
-        position: absolute;
-        z-index: 999;
-        top: 64px;
-        left: 0;
-        height: 100vh;
-        width: 250px;
-        transform: translateX(-150%);
-        box-shadow: 0 12px 12px 0 ${shade(0.2, theme.colors.ice)};
-        overflow-y: auto;
-        transition: 0.2s;
+    ${grid.lessThan('md')`
+      background: ${theme.colors.ice};
+      display: block;
+      position: absolute;
+      z-index: 999;
+      top: 64px;
+      left: 0;
+      height: 100vh;
+      width: 250px;
+      transform: translateX(-150%);
+      box-shadow: 0 12px 12px 0 ${shade(0.2, theme.colors.ice)};
+      overflow-y: auto;
+      transition: 0.2s;
 
-        &.active {
-          position: fixed;
-          transform: translateX(0%);
-        }
-      `
-    )}
+      &.active {
+        position: fixed;
+        transform: translateX(0%);
+      }
+    `}
   `}
 `
 
 export const List = styled.li`
   display: flex;
 
-  ${grid.lessThan(
-    'md',
-    css`
-      display: block;
-    `
-  )}
+  ${grid.lessThan('md')`
+    display: block;
+  `}
 `
 
 export const ListLink = styled.a`
@@ -128,13 +122,10 @@ export const ListLink = styled.a`
       background: ${shade(0.1, theme.colors.ice)};
     }
 
-    ${grid.lessThan(
-      'md',
-      css`
-        display: block;
-        padding: ${theme.spacing.sm} ${theme.spacing.md};
-      `
-    )}
+    ${grid.lessThan('md')`
+      display: block;
+      padding: ${theme.spacing.sm} ${theme.spacing.md};
+    `}
   `}
 `
 
@@ -157,10 +148,7 @@ export const Button = styled.button`
     }
   `}
 
-  ${grid.lessThan(
-    'md',
-    css`
-      display: block;
-    `
-  )}
+  ${grid.lessThan('md')`
+    display: block;
+  `}
 `
