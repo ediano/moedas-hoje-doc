@@ -7,6 +7,8 @@ import { site } from '@/config/site'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 
+import * as S from './styles'
+
 type Props = {
   children?: ReactNode
 }
@@ -24,7 +26,9 @@ export const Pages = ({ children }: Props) => {
 
       <Header />
 
-      <main>{children}</main>
+      <main>
+        <S.Wrapper>{children}</S.Wrapper>
+      </main>
 
       <Footer />
     </>

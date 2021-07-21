@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import { MdMenu } from 'react-icons/md'
 import { RiCoinsLine } from 'react-icons/ri'
+
+import { SubMenu } from './SubMenu'
 
 import { site } from '@/config/site'
 import { listLinks } from './listLinks'
@@ -10,27 +12,10 @@ import * as S from './styles'
 
 const Nav = () => {
   const [slideOut, setSlideOut] = useState(false)
-  const [scroll, setScroll] = useState('notscroll')
-
-  useEffect(() => {
-    addEventListener('scroll', () => {
-      if (window.scrollY > 5 && scroll === 'notscroll') {
-        setScroll('scroll')
-      }
-
-      if (window.scrollY <= 5 && scroll === 'scroll') {
-        setScroll('notscroll')
-      }
-    })
-
-    if (window?.scrollY > 5 && scroll === 'notscroll') {
-      setScroll('scroll')
-    }
-  }, [scroll])
 
   return (
     <S.Container>
-      <S.Nav className={scroll}>
+      <S.Nav>
         <S.Wrapper>
           <S.Logo>
             <Link href={site.url} passHref>
@@ -66,7 +51,7 @@ const Nav = () => {
           </S.ListWrapper>
         </S.Wrapper>
 
-        <div></div>
+        <SubMenu />
       </S.Nav>
     </S.Container>
   )

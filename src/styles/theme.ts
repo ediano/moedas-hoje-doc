@@ -1,8 +1,7 @@
 import { shade, lighten } from 'polished'
 
 const theme = {
-  shadow:
-    '0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%)',
+  shadow: '0 4px 12px 0 rgb(0 0 0 / 25%)',
 
   colors: {
     sText: shade(0.9, '#fff'),

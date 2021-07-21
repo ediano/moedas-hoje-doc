@@ -23,10 +23,10 @@ export const Description = styled.div`
     font-weight: 600;
   `}
 
-  ${grid.lessThan('lg')`
+  ${grid.lessThan('lg')(css`
     width: 100%;
     max-width: 700px;
-  `}
+  `)}
 `
 
 export const Content = styled.div`
@@ -45,14 +45,14 @@ export const Content = styled.div`
       }
     }
 
-    ${grid.lessThan('lg')`
+    ${grid.lessThan('lg')(css`
       div {
         width: 100%;
         max-width: 700px;
       }
 
       flex-direction: column-reverse;
-    `}
+    `)}
   `}
 `
 
@@ -76,9 +76,9 @@ export const ListContent = styled.div`
   ${({ theme }) => css`
     padding: ${theme.spacing.lg};
 
-    ${grid.lessThan('lg')`
+    ${grid.lessThan('lg')(css`
       width: 100%;
-    `}
+    `)}
 
     & > svg {
       display: flex;

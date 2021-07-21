@@ -26,9 +26,9 @@ export const Wrapper = styled.div`
     color: ${theme.colors.white};
   `}
 
-  ${grid.lessThan('lg')`
+  ${grid.lessThan('lg')(css`
     flex-direction: column-reverse;
-  `}
+  `)}
 `
 
 export const Content = styled.div`
@@ -42,14 +42,14 @@ export const Content = styled.div`
     }
   `}
 
-  ${grid.lessThan('lg')`
+  ${grid.lessThan('lg')(css`
     width: 100%;
     max-width: 700px;
 
     p {
       text-align: justify;
     }
-  `}
+  `)}
 `
 
 export const Idea = styled.div`
@@ -67,11 +67,9 @@ export const IcoFcIdea = styled(FcIdea)`
   min-height: 150px;
 
   ${({ theme }) =>
-    css`
-      ${grid.lessThan('lg')`
-        margin-bottom: ${theme.spacing.sm};
-      `}
-    `}
+    grid.lessThan('lg')(css`
+      margin-bottom: ${theme.spacing.sm};
+    `)}
 `
 
 export const ListExchange = styled.div`

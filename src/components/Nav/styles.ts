@@ -5,6 +5,11 @@ import { container, grid } from '@/styles/layout'
 export const Container = styled.div`
   width: 100%;
   height: 64px;
+
+  ${({ theme }) =>
+    grid.between('lg')(css`
+      border-bottom: 1px solid ${theme.colors.sIce};
+    `)};
 `
 
 export const Nav = styled.nav`
@@ -13,16 +18,12 @@ export const Nav = styled.nav`
   z-index: 999;
   transition: 0.4s;
 
-  ${grid.lessThan('lg')`
-    width: 100%;
-  `}
-
-  ${({ theme }) => css`
-    &.scroll {
+  ${({ theme }) =>
+    grid.lessThan('lg')(css`
+      width: 100%;
       box-shadow: ${theme.shadow};
       background: ${lighten(0.01, theme.colors.ice)};
-    }
-  `};
+    `)};
 `
 
 export const Wrapper = styled.div`
@@ -82,8 +83,8 @@ export const ListContainer = styled.ul`
   display: flex;
   height: 100%;
 
-  ${({ theme }) => css`
-    ${grid.lessThan('md')`
+  ${({ theme }) =>
+    grid.lessThan('md')(css`
       background: ${theme.colors.ice};
       display: block;
       position: absolute;
@@ -101,16 +102,15 @@ export const ListContainer = styled.ul`
         position: fixed;
         transform: translateX(0%);
       }
-    `}
-  `}
+    `)}
 `
 
 export const List = styled.li`
   display: flex;
 
-  ${grid.lessThan('md')`
+  ${grid.lessThan('md')(css`
     display: block;
-  `}
+  `)}
 `
 
 export const ListLink = styled.a`
@@ -126,10 +126,10 @@ export const ListLink = styled.a`
       background: ${shade(0.1, theme.colors.ice)};
     }
 
-    ${grid.lessThan('md')`
+    ${grid.lessThan('md')(css`
       display: block;
       padding: ${theme.spacing.sm} ${theme.spacing.md};
-    `}
+    `)}
   `}
 `
 
@@ -152,7 +152,7 @@ export const Button = styled.button`
     }
   `}
 
-  ${grid.lessThan('md')`
+  ${grid.lessThan('md')(css`
     display: block;
-  `}
+  `)}
 `

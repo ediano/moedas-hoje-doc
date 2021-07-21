@@ -23,9 +23,9 @@ export const Wrapper = styled.div`
     margin-bottom: ${theme.spacing.lg};
   `}
 
-  ${grid.lessThan('lg')`
+  ${grid.lessThan('lg')(css`
     flex-direction: column;
-  `}
+  `)}
 `
 
 export const Content = styled.div`
@@ -48,10 +48,10 @@ export const Content = styled.div`
     }
   `}
 
-  ${grid.lessThan('lg')`
+  ${grid.lessThan('lg')(css`
     width: 100%;
     max-width: 700px;
-  `}
+  `)}
 `
 
 export const Overtime = styled.div`
@@ -63,9 +63,9 @@ export const Overtime = styled.div`
   align-content: center;
   text-align: center;
 
-  ${grid.lessThan('lg')`
+  ${grid.lessThan('lg')(css`
     display: none;
-  `}
+  `)}
 `
 
 export const IcoOvertime = styled(FcOvertime)`

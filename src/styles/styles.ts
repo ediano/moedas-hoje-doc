@@ -19,7 +19,9 @@ export const Wrapper = styled.div`
   `}
 
   ${grid.lessThan('lg')`
-    flex-direction: column;
+    ${css`
+      flex-direction: column;
+    `}
   `}
 `
 
@@ -30,12 +32,14 @@ export const Content = styled.section`
     padding: 0 ${theme.spacing.sm};
 
     ${grid.lessThan('lg')`
-      width: 100%;
-      max-width: 700px;
+      ${css`
+        width: 100%;
+        max-width: 700px;
 
-      & + & {
-        margin-top: ${theme.spacing.md};
-      }
+        & + & {
+          margin-top: ${theme.spacing.md};
+        }
+      `}
     `}
   `}
 `

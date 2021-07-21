@@ -29,10 +29,10 @@ export const Wrapper = styled.div`
     margin-bottom: ${theme.spacing.lg};
   `}
 
-  ${grid.lessThan('lg')`
+  ${grid.lessThan('lg')(css`
     display: block;
     flex-direction: column;
-  `}
+  `)}
 `
 
 export const Image = styled.div`
@@ -42,9 +42,9 @@ export const Image = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${grid.lessThan('lg')`
+  ${grid.lessThan('lg')(css`
     max-width: 700px;
-  `}
+  `)}
 
   ${({ theme }) => css`
     padding: ${theme.spacing.lg};
@@ -120,7 +120,7 @@ export const Content = styled.div`
       }
     }
 
-    ${grid.lessThan('lg')`
+    ${grid.lessThan('lg')(css`
       margin: 0 auto;
       width: 100%;
       max-width: 700px;
@@ -129,13 +129,13 @@ export const Content = styled.div`
       p {
         font-size: ${theme.fonts.sizes.sm};
       }
-    `}
+    `)}
 
-    ${grid.lessThan('md')`
+    ${grid.lessThan('md')(css`
       h1 {
         font-size: ${theme.fonts.sizes.md};
       }
-    `}
+    `)}
   `}
 `
 

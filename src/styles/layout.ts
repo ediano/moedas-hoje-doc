@@ -1,8 +1,4 @@
-import {
-  css,
-  FlattenInterpolation,
-  FlattenSimpleInterpolation
-} from 'styled-components'
+import { css, FlattenSimpleInterpolation } from 'styled-components'
 
 const sizes = {
   xs: '250px',
