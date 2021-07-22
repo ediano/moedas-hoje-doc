@@ -49,14 +49,12 @@ export default createGlobalStyle<Props>`
         padding-left: 250px;
       }
 
-      ${grid.lessThan('lg')`
-          ${css`
-            header,
-            main,
-            footer {
-              padding-left: 0;
-            }
-          `}
-        `}
+      ${grid.lessThan('lg')(css`
+        header,
+        main,
+        footer {
+          padding-left: 0;
+        }
+      `)}
     `}
 `

@@ -1,29 +1,16 @@
 import styled, { css } from 'styled-components'
-import { shade, lighten, transparentize } from 'polished'
+import { shade, transparentize } from 'polished'
 import { container, grid } from '@/styles/layout'
 
-export const Container = styled.div`
-  width: 100%;
-  height: 64px;
-
-  ${({ theme }) =>
-    grid.between('lg')(css`
-      border-bottom: 1px solid ${theme.colors.sIce};
-    `)};
-`
-
 export const Nav = styled.nav`
-  position: fixed;
-  width: calc(100% - 300px);
-  z-index: 999;
-  transition: 0.4s;
+  width: 100%;
+  height: 128px;
+  display: flex;
+  align-items: center;
 
-  ${({ theme }) =>
-    grid.lessThan('lg')(css`
-      width: 100%;
-      box-shadow: ${theme.shadow};
-      background: ${lighten(0.01, theme.colors.ice)};
-    `)};
+  ${({ theme }) => css`
+    border-bottom: 1px solid ${theme.colors.sIce};
+  `};
 `
 
 export const Wrapper = styled.div`
@@ -63,16 +50,16 @@ export const ListWrapper = styled.div`
     .sidenav-overlay {
       position: fixed;
       display: none;
-      top: 64px;
+      top: 127px;
       left: 0;
       z-index: 998;
-      height: 100vh;
+      height: 100%;
       background: ${transparentize(0.5, theme.colors.secondary)};
       transform: translateX(-150%);
     }
 
     .active ~ .sidenav-overlay {
-      width: 100vh;
+      width: 100%;
       display: block;
       transform: translateX(0%);
     }
@@ -84,12 +71,12 @@ export const ListContainer = styled.ul`
   height: 100%;
 
   ${({ theme }) =>
-    grid.lessThan('md')(css`
+    grid.lessThan('lg')(css`
       background: ${theme.colors.ice};
       display: block;
       position: absolute;
       z-index: 999;
-      top: 64px;
+      top: 127px;
       left: 0;
       height: 100vh;
       width: 250px;
@@ -108,7 +95,7 @@ export const ListContainer = styled.ul`
 export const List = styled.li`
   display: flex;
 
-  ${grid.lessThan('md')(css`
+  ${grid.lessThan('lg')(css`
     display: block;
   `)}
 `
@@ -117,16 +104,17 @@ export const ListLink = styled.a`
   display: flex;
   align-items: center;
   transition: 0.4s;
+  font-weight: 600;
 
   ${({ theme }) => css`
     padding: 0 ${theme.spacing.sm};
     color: ${theme.colors.sText};
 
     &:hover {
-      background: ${shade(0.1, theme.colors.ice)};
+      color: ${shade(0.1, theme.colors.primary)};
     }
 
-    ${grid.lessThan('md')(css`
+    ${grid.lessThan('lg')(css`
       display: block;
       padding: ${theme.spacing.sm} ${theme.spacing.md};
     `)}
@@ -152,7 +140,7 @@ export const Button = styled.button`
     }
   `}
 
-  ${grid.lessThan('md')(css`
+  ${grid.lessThan('lg')(css`
     display: block;
   `)}
 `

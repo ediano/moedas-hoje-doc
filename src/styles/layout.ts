@@ -8,7 +8,7 @@ const sizes = {
   xlg: '1440px'
 }
 
-type Sizes = keyof typeof sizes
+type Sizes = keyof typeof sizes | String
 
 export const row = css`
   display: flow-root;
