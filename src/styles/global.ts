@@ -40,13 +40,18 @@ export default createGlobalStyle<Props>`
     font-family: ${props => props.theme.fonts.family};
   }
 
+  ul,
+  ol {
+    list-style: none;
+  }
+
   ${({ layout }) =>
     layout === 'pages' &&
     css`
       header,
       main,
       footer {
-        padding-left: 250px;
+        padding-left: 200px;
       }
 
       ${grid.lessThan('lg')(css`
