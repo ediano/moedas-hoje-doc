@@ -29,7 +29,7 @@ export const container = css`
 function lessThan(size: Sizes) {
   return (...styles: FlattenSimpleInterpolation) =>
     css`
-      @media (max-width: ${sizes[size] || size}) {
+      @media (max-width: ${sizes[size] || `${size}px`}) {
         ${styles}
       }
     `
@@ -39,7 +39,8 @@ function greaterThan(firstSize: Sizes, lastSize: Sizes) {
   return (...styles: FlattenSimpleInterpolation) =>
     css`
       @media (min-width: ${sizes[firstSize] ||
-        firstSize}) and (max-width: ${sizes[lastSize] || lastSize}) {
+        `${firstSize}px`}) and (max-width: ${sizes[lastSize] ||
+        `${lastSize}px`}) {
         ${styles}
       }
     `
@@ -48,7 +49,7 @@ function greaterThan(firstSize: Sizes, lastSize: Sizes) {
 function between(size: Sizes) {
   return (...styles: FlattenSimpleInterpolation) =>
     css`
-      @media (min-width: ${sizes[size] || size}) {
+      @media (min-width: ${sizes[size] || `${size}px`}) {
         ${styles}
       }
     `
