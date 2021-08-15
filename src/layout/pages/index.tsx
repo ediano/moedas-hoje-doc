@@ -10,15 +10,16 @@ import { Footer } from '@/components/Footer'
 import * as S from './styles'
 
 type Props = {
+  title: string
   children?: ReactNode
 }
 
-export const Pages = ({ children }: Props) => {
+export const Pages = ({ title, children }: Props) => {
   return (
     <>
       <Head>
         <title>
-          Introdução - {site.description} | {site.title}
+          {title} - {site.description} | {site.title}
         </title>
       </Head>
 

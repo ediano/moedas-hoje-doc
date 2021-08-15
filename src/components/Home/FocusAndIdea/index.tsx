@@ -1,6 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 
-import { SectionFocusAndIdea } from '@/types/content'
+import { SectionFocusAndIdea } from '@/types/home'
 
 import * as S from './styles'
 

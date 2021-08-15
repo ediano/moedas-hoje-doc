@@ -45,6 +45,12 @@ export default createGlobalStyle<Props>`
     list-style: none;
   }
 
+  p + p {
+     ${({ theme }) => css`
+       margin-top: ${theme.spacing.md};
+     `};
+  }
+
   ${({ layout }) =>
     layout === 'pages' &&
     css`

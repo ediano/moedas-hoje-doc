@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown'
-import { SectionLimitAndDelay } from '@/types/content'
+import { SectionLimitAndDelay } from '@/types/home'
 
 import * as S from './styles'
 
