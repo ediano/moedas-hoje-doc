@@ -2,7 +2,7 @@ import ReactMarkdown from 'react-markdown'
 
 import Image from '@/components/Image'
 
-import { SectionScreenFull } from 'src/types/content'
+import { SectionScreenFull } from 'src/types/home'
 
 import * as S from './styles'
 import React from 'react'
