@@ -6,6 +6,7 @@ export type IntroductionProps = {
   title: string
   subtitle: string
   baseUrl: string
+  dataApi: string
   versions: IntroductionVersionsProps<Object>
   body: string
 }

@@ -68,4 +68,10 @@ export default createGlobalStyle<Props>`
         }
       `)}
     `}
+
+  pre {
+    ${({ theme }) => css`
+      margin: ${theme.spacing.md} 0 !important;
+    `}
+  }
 `

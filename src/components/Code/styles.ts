@@ -20,3 +20,9 @@ export const Lang = styled.span`
     border-radius: ${theme.spacing.xxs};
   `}
 `
+
+export const CodeNone = styled.code`
+  ${({ theme }) => css`
+    padding: ${theme.spacing.xxs} !important;
+  `}
+`
