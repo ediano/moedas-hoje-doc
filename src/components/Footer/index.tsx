@@ -1,6 +1,6 @@
 import * as S from './styles'
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <S.Container>
       <S.Wrapper>
@@ -26,3 +26,5 @@ export const Footer = () => {
     </S.Container>
   )
 }
+
+export default Footer

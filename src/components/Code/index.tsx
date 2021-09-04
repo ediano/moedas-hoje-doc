@@ -12,7 +12,7 @@ type Props = {
   type?: string
 }
 
-export const Code = ({ code, lang, type }: Props) => {
+const Code = ({ code, lang, type }: Props) => {
   const [typeOfStructure, setTypeOfStructure] = useState('')
 
   useEffect(() => {
@@ -41,3 +41,5 @@ export const Code = ({ code, lang, type }: Props) => {
     </S.Container>
   )
 }
+
+export default Code

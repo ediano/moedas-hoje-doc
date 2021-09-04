@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { MdMenu } from 'react-icons/md'
 import { RiCoinsLine } from 'react-icons/ri'
 
-import { SubMenu } from './SubMenu'
+import SubMenu from './SubMenu'
 
 import { site } from '@/config/site'
 import { listLinks } from './listLinks'

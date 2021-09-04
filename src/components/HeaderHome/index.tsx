@@ -10,7 +10,7 @@ type Props = {
   children?: ReactNode
 }
 
-export const HeaderHome = ({ children }: Props) => {
+const HeaderHome = ({ children }: Props) => {
   return (
     <S.Header>
       <S.Wrapper>
@@ -27,3 +27,5 @@ export const HeaderHome = ({ children }: Props) => {
     </S.Header>
   )
 }
+
+export default HeaderHome

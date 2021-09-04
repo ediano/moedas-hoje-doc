@@ -8,7 +8,7 @@ type Props = {
   children?: ReactNode
 }
 
-export const Header = ({ children }: Props) => {
+const Header = ({ children }: Props) => {
   return (
     <S.Header>
       <Nav />
@@ -17,3 +17,5 @@ export const Header = ({ children }: Props) => {
     </S.Header>
   )
 }
+
+export default Header

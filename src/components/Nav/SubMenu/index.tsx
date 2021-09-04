@@ -3,7 +3,7 @@ import { listLinks } from './listLinks'
 
 import * as S from './styles'
 
-export const SubMenu = () => {
+const SubMenu = () => {
   return (
     <S.Container>
       <S.ListWrapper>
@@ -18,3 +18,5 @@ export const SubMenu = () => {
     </S.Container>
   )
 }
+
+export default SubMenu
