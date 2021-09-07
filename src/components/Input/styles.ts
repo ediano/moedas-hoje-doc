@@ -7,7 +7,8 @@ type ContainerProps = {
 export const Container = styled.div<ContainerProps>`
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
 
   ${({ theme, isLabel }) => css`
     background: ${theme.colors.white};

@@ -1,12 +1,12 @@
-import { useRef } from 'react'
 import { GetStaticProps } from 'next'
 import ReactMarkdown from 'react-markdown'
 
 import { Pages } from '@/layout/pages'
-import Code from '@/components/Code'
-import Input from '@/components/Input'
 import { AttributesMarkdown } from '@/types/markdown'
 import { IntroductionProps } from '@/types/pages'
+
+import Code from '@/components/Code'
+import RunApi from '@/components/RunApi'
 
 import { api } from '@/services/axios'
 
@@ -15,14 +15,12 @@ import * as S from '@/styles/pages/introducao'
 type Props = IntroductionProps
 
 const Introducao = ({ title, baseUrl, subtitle, body, dataApi }: Props) => {
-  const inputRef = useRef<HTMLInputElement>(null)
-
   return (
     <Pages title={title}>
       <S.Title>{subtitle}</S.Title>
       <ReactMarkdown children={body} />
 
-      <Input ref={inputRef} name="name" placeholder="Meu placeholder" isLabel />
+      <RunApi method="GET" url={baseUrl}></RunApi>
 
       <Code code={dataApi} lang="json" type="Object" />
     </Pages>

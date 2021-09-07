@@ -2,7 +2,8 @@ import React, {
   useState,
   forwardRef,
   InputHTMLAttributes,
-  MutableRefObject
+  MutableRefObject,
+  ReactNode
 } from 'react'
 
 import * as S from './styles'
@@ -13,10 +14,11 @@ type Props = {
   placeholder: string
   name: string
   isLabel?: boolean
+  children?: ReactNode
 } & InputProps
 
 const Input = (
-  { isLabel, name, placeholder, ...props }: Props,
+  { isLabel, name, placeholder, children, ...props }: Props,
   ref: MutableRefObject<HTMLInputElement>
 ) => {
   const [isFocus, setIsFocus] = useState(false)
@@ -39,6 +41,8 @@ const Input = (
         ref={ref}
         {...props}
       />
+
+      {children}
     </S.Container>
   )
 }

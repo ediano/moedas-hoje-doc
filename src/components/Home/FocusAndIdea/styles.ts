@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import { shade } from 'polished'
 import { FcIdea } from 'react-icons/fc'
 import { row, container, grid } from '@/styles/layout'
+import { Button } from '@/components/Button/styles'
 
 export const Container = styled.section`
   ${row}
@@ -80,7 +81,7 @@ export const ListExchange = styled.div`
   `}
 `
 
-export const Link = styled.a`
+export const Link = styled(Button)`
   ${({ theme }) => css`
     display: inline-table;
     color: ${theme.colors.black};
@@ -94,6 +95,7 @@ export const Link = styled.a`
 
     &:hover {
       box-shadow: 0 4px 12px 0 ${shade(0.5, theme.colors.shadow1)};
+      background: ${theme.colors.white};
     }
   `}
 `
