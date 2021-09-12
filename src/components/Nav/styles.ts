@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { shade, transparentize } from 'polished'
-import { container, grid } from '@/styles/layout'
+import { container, grid } from 'styles/layout'
 
 export const Nav = styled.nav`
   width: 100%;

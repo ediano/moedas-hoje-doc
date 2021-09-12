@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
 import { shade } from 'polished'
 import { FcIdea } from 'react-icons/fc'
-import { row, container, grid } from '@/styles/layout'
-import { Button } from '@/components/Button/styles'
+import { row, container, grid } from 'styles/layout'
+import { Button } from 'components/Button/styles'
 
 export const Container = styled.section`
   ${row}

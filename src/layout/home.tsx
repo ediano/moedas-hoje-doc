@@ -1,13 +1,13 @@
 import { ReactNode } from 'react'
 import Head from 'next/head'
 
-import GlobalStyle from '@/styles/global'
-import ScreenFull from '@/components/ScreenFull'
+import GlobalStyle from 'styles/global'
+import ScreenFull from 'components/ScreenFull'
 
-import { site } from '@/config/site'
-import HeaderHome from '@/components/HeaderHome'
-import Footer from '@/components/Footer'
-import { SectionScreenFull } from '@/types/home'
+import { site } from 'config/site'
+import HeaderHome from 'components/HeaderHome'
+import Footer from 'components/Footer'
+import { SectionScreenFull } from 'types/home'
 
 type Props = {
   children: ReactNode

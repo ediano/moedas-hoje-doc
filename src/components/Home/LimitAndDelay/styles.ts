@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { FcOvertime } from 'react-icons/fc'
-import { row, container, grid } from '@/styles/layout'
+import { row, container, grid } from 'styles/layout'
 
 export const Container = styled.section`
   ${row}

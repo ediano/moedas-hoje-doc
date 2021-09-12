@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { row, container } from '@/styles/layout'
+import { row, container } from 'styles/layout'
 
 export const Header = styled.header`
   ${row}

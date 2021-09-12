@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
-import { container, grid } from '@/styles/layout'
+import { container, grid } from 'styles/layout'
 import { FaDollarSign, FaBitcoin, FaEthereum } from 'react-icons/fa'
-import { Button as ButtonBase } from '@/components/Button/styles'
+import { Button as ButtonBase } from 'components/Button/styles'
 
 export const Container = styled.section`
   min-height: 500px;

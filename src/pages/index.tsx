@@ -1,18 +1,18 @@
 import { GetStaticProps } from 'next'
 
-import { Home } from '@/layout/home'
-import FocusAndIdea from '@/components/Home/FocusAndIdea'
-import LimitAndDelay from '@/components/Home/LimitAndDelay'
-import DeployAndCdn from '@/components/Home/DeployAndCdn'
+import { Home } from 'layout/home'
+import FocusAndIdea from 'components/Home/FocusAndIdea'
+import LimitAndDelay from 'components/Home/LimitAndDelay'
+import DeployAndCdn from 'components/Home/DeployAndCdn'
 
-import { AttributesMarkdown } from '@/types/markdown'
+import { AttributesMarkdown } from 'types/markdown'
 import {
   HomeProps,
   SectionScreenFull,
   SectionFocusAndIdea,
   SectionLimitAndDelay,
   SectionDeployAndCdn
-} from '@/types/home'
+} from 'types/home'
 
 type Props = HomeProps
 

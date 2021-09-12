@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { row, container, grid } from '@/styles/layout'
+import { row, container, grid } from 'styles/layout'
 import { RiCoinsLine } from 'react-icons/ri'
 
 export const Container = styled.footer`

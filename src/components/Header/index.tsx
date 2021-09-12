@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import Nav from '@/components/Nav'
+import Nav from 'components/Nav'
 
 import * as S from './styles'
 

@@ -2,7 +2,7 @@ import ReactMarkdown from 'react-markdown'
 import { IoLogoVercel } from 'react-icons/io5'
 import { MdCached } from 'react-icons/md'
 
-import { SectionDeployAndCdn } from '@/types/home'
+import { SectionDeployAndCdn } from 'types/home'
 
 import * as S from './styles'
 

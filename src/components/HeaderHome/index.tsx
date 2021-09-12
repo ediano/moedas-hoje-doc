@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import Link from 'next/link'
 import { RiCoinsLine } from 'react-icons/ri'
 
-import { site } from '@/config/site'
+import { site } from 'config/site'
 
 import * as S from './styles'
 

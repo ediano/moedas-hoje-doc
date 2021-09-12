@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { container } from '@/styles/layout'
+import { container } from 'styles/layout'
 
 export const Wrapper = styled.section`
   ${container}

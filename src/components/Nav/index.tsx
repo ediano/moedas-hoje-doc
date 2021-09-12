@@ -5,7 +5,7 @@ import { RiCoinsLine } from 'react-icons/ri'
 
 import SubMenu from './SubMenu'
 
-import { site } from '@/config/site'
+import { site } from 'config/site'
 import { listLinks } from './listLinks'
 
 import * as S from './styles'

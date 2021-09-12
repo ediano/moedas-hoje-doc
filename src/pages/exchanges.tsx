@@ -14,7 +14,7 @@ import * as S from 'styles/pages/introducao'
 
 type Props = IntroductionProps
 
-const Introducao = ({ title, baseUrl, subtitle, body, dataApi }: Props) => {
+const Exchanges = ({ title, baseUrl, subtitle, body, dataApi }: Props) => {
   return (
     <Pages title={title}>
       <S.Title>{subtitle}</S.Title>
@@ -39,4 +39,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default Introducao
+export default Exchanges
