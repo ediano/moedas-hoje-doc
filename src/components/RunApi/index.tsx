@@ -15,7 +15,7 @@ const RunApi = ({ method, url, query, children }: Props) => {
   return (
     <S.Container>
       <S.Content>
-        <S.Method>{method}:</S.Method> {url}
+        <S.Method>{method}</S.Method> {url}
         {query && <S.Query>?{query}</S.Query>}
       </S.Content>
 
