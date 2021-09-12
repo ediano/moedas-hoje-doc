@@ -35,7 +35,7 @@ const Nav = () => {
             <MdMenu />
           </S.Button>
 
-          <S.ListContainer className={slideOut && 'active'}>
+          <S.ListContainer className={slideOut ? 'active' : ''}>
             {listLinks?.map(item => (
               <S.List key={item.attributes.href}>
                 {item.attributes?.target ? (

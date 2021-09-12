@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown'
 
 import { Pages } from 'layout/pages'
 import { AttributesMarkdown } from 'types/markdown'
-import { TickersPageProps } from 'types/pages'
+import { TickerPageProps } from 'types/pages'
 
 import Title from 'components/Title'
 import Code from 'components/Code'
@@ -15,16 +15,16 @@ import ButtonRun from 'components/ButtonRun'
 
 import { api } from 'services/axios'
 
-type Props = TickersPageProps
+type Props = TickerPageProps
 
-const Tickers = ({
+const Ticker = ({
   title,
   body,
   versions,
   patchUrl,
   dataApi,
-  asset,
-  source
+  symbol,
+  symbolSource
 }: Props) => {
   const [data, setData] = useState(dataApi)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -41,10 +41,12 @@ const Tickers = ({
   const handleSubmit = useCallback(
     async (event: FormEvent) => {
       event.preventDefault()
-      const response = await api.get(`${versions}/${patchUrl}?${query}`)
+      const response = await api.get(
+        `${versions}/${patchUrl}?${symbol}${query && '&' + query}`
+      )
       setData(response.data)
     },
-    [versions, patchUrl, query]
+    [versions, patchUrl, symbol, query]
   )
 
   return (
@@ -57,12 +59,12 @@ const Tickers = ({
         onSubmit={handleSubmit}
         method="GET"
         patchUrl={`${versions}/${patchUrl}`}
-        query={query}
+        query={`${symbol}${query && '&' + query}`}
       >
         <Input
           ref={inputRef}
-          name="tickers"
-          placeholder={`Query example: ${source} | ${asset}`}
+          name="ticker"
+          placeholder={`Query example: ${symbol} | ${symbolSource}`}
           isLabel
           onChange={handleChangeInput}
         >
@@ -77,11 +79,11 @@ const Tickers = ({
 
 export const getStaticProps: GetStaticProps = async () => {
   const { attributes, body } = (await import(
-    'content/pages/tickers.md'
-  )) as AttributesMarkdown<TickersPageProps>
+    'content/pages/ticker.md'
+  )) as AttributesMarkdown<TickerPageProps>
 
   const response = await api.get(
-    `${attributes.versions}/${attributes.patchUrl}`
+    `${attributes.versions}/${attributes.patchUrl}?${attributes.symbol}`
   )
 
   return {
@@ -89,4 +91,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default Tickers
+export default Ticker

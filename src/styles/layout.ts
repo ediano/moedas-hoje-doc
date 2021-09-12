@@ -27,29 +27,35 @@ export const container = css`
 `
 
 function lessThan(size: Sizes) {
+  const isNumber = typeof size === 'number'
   return (...styles: FlattenSimpleInterpolation) =>
     css`
-      @media (max-width: ${sizes[size] || `${size}px`}) {
+      @media (max-width: ${isNumber ? `${size}px` : sizes[size]}) {
         ${styles}
       }
     `
 }
 
 function greaterThan(firstSize: Sizes, lastSize: Sizes) {
+  const isNumberFirstSize = typeof firstSize === 'number'
+  const isNumberLastSize = typeof lastSize === 'number'
   return (...styles: FlattenSimpleInterpolation) =>
     css`
-      @media (min-width: ${sizes[firstSize] ||
-        `${firstSize}px`}) and (max-width: ${sizes[lastSize] ||
-        `${lastSize}px`}) {
+      @media (min-width: ${isNumberFirstSize
+          ? `${firstSize}px`
+          : sizes[firstSize]}) and (max-width: ${isNumberLastSize
+          ? `${lastSize}px`
+          : sizes[lastSize]}) {
         ${styles}
       }
     `
 }
 
 function between(size: Sizes) {
+  const isNumber = typeof size === 'number'
   return (...styles: FlattenSimpleInterpolation) =>
     css`
-      @media (min-width: ${sizes[size] || `${size}px`}) {
+      @media (min-width: ${isNumber ? `${size}px` : sizes[size]}) {
         ${styles}
       }
     `
