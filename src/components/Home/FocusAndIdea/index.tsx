@@ -1,6 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 
-import { SectionFocusAndIdea } from '@/types/content'
+import { SectionFocusAndIdea } from '@/types/home'
 
 import * as S from './styles'
 
@@ -16,9 +16,9 @@ const FocusAndIdea = ({ list, body }: Props) => {
           <S.ListExchange>
             {list?.map(item => (
               <S.Link
+                as="a"
                 key={item.title}
                 href={item.link}
-                target="_blank"
                 rel="nofollow noopener noreferrer"
               >
                 {item.title}

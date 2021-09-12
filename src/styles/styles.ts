@@ -18,9 +18,11 @@ export const Wrapper = styled.div`
     margin-bottom: ${theme.spacing.xxl};
   `}
 
-  ${grid.lessThan('lg')(css`
-    flex-direction: column;
-  `)}
+  ${grid.lessThan('lg')`
+    ${css`
+      flex-direction: column;
+    `}
+  `}
 `
 
 export const Content = styled.section`
@@ -29,14 +31,16 @@ export const Content = styled.section`
   ${({ theme }) => css`
     padding: 0 ${theme.spacing.sm};
 
-    ${grid.lessThan('lg')(css`
-      width: 100%;
-      max-width: 700px;
+    ${grid.lessThan('lg')`
+      ${css`
+        width: 100%;
+        max-width: 700px;
 
-      & + & {
-        margin-top: ${theme.spacing.md};
-      }
-    `)}
+        & + & {
+          margin-top: ${theme.spacing.md};
+        }
+      `}
+    `}
   `}
 `
 

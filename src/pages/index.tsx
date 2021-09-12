@@ -5,14 +5,14 @@ import FocusAndIdea from '@/components/Home/FocusAndIdea'
 import LimitAndDelay from '@/components/Home/LimitAndDelay'
 import DeployAndCdn from '@/components/Home/DeployAndCdn'
 
+import { AttributesMarkdown } from '@/types/markdown'
 import {
   HomeProps,
-  Attributes,
   SectionScreenFull,
   SectionFocusAndIdea,
   SectionLimitAndDelay,
   SectionDeployAndCdn
-} from '@/types/content'
+} from '@/types/home'
 
 type Props = HomeProps
 
@@ -34,19 +34,19 @@ const Index = ({
 export const getStaticProps: GetStaticProps = async () => {
   const { attributes: screenFull } = (await import(
     'content/home/screen-full.md'
-  )) as Attributes<SectionScreenFull>
+  )) as AttributesMarkdown<SectionScreenFull>
 
   const { attributes: focusAndIdea, body: bodyFocusAndIdea } = (await import(
     'content/home/focus-and-idea.md'
-  )) as Attributes<SectionFocusAndIdea>
+  )) as AttributesMarkdown<SectionFocusAndIdea>
 
   const { attributes: deployAndCdn, body: bodyDeployAndCdn } = (await import(
     'content/home/deploy-and-cdn.md'
-  )) as Attributes<SectionDeployAndCdn>
+  )) as AttributesMarkdown<SectionDeployAndCdn>
 
   const { attributes: limitAndDelay } = (await import(
     'content/home/limits-and-delays.md'
-  )) as Attributes<SectionLimitAndDelay>
+  )) as AttributesMarkdown<SectionLimitAndDelay>
 
   return {
     props: {

@@ -1,10 +1,5 @@
 import { ImageProps } from 'next/image'
 
-export type Attributes<T> = {
-  attributes: T
-  body?: string
-}
-
 export type SectionScreenFull = {
   catchphrase: string
   description: string
@@ -19,6 +14,8 @@ type FocusAndIdeaProps = {
 }
 
 export type SectionFocusAndIdea = {
+  title: string
+  catchphrase: string
   list: FocusAndIdeaProps[]
   body: string
 }

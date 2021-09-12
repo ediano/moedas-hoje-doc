@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import { shade } from 'polished'
 import { FcIdea } from 'react-icons/fc'
 import { row, container, grid } from '@/styles/layout'
+import { Button } from '@/components/Button/styles'
 
 export const Container = styled.section`
   ${row}
@@ -26,12 +27,9 @@ export const Wrapper = styled.div`
     color: ${theme.colors.white};
   `}
 
-  ${grid.lessThan(
-    'lg',
-    css`
-      flex-direction: column-reverse;
-    `
-  )}
+  ${grid.lessThan('lg')(css`
+    flex-direction: column-reverse;
+  `)}
 `
 
 export const Content = styled.div`
@@ -45,17 +43,14 @@ export const Content = styled.div`
     }
   `}
 
-  ${grid.lessThan(
-    'lg',
-    css`
-      width: 100%;
-      max-width: 700px;
+  ${grid.lessThan('lg')(css`
+    width: 100%;
+    max-width: 700px;
 
-      p {
-        text-align: justify;
-      }
-    `
-  )}
+    p {
+      text-align: justify;
+    }
+  `)}
 `
 
 export const Idea = styled.div`
@@ -73,14 +68,9 @@ export const IcoFcIdea = styled(FcIdea)`
   min-height: 150px;
 
   ${({ theme }) =>
-    css`
-      ${grid.lessThan(
-        'lg',
-        css`
-          margin-bottom: ${theme.spacing.sm};
-        `
-      )}
-    `}
+    grid.lessThan('lg')(css`
+      margin-bottom: ${theme.spacing.sm};
+    `)}
 `
 
 export const ListExchange = styled.div`
@@ -91,7 +81,7 @@ export const ListExchange = styled.div`
   `}
 `
 
-export const Link = styled.a`
+export const Link = styled(Button)`
   ${({ theme }) => css`
     display: inline-table;
     color: ${theme.colors.black};
@@ -105,6 +95,7 @@ export const Link = styled.a`
 
     &:hover {
       box-shadow: 0 4px 12px 0 ${shade(0.5, theme.colors.shadow1)};
+      background: ${theme.colors.white};
     }
   `}
 `

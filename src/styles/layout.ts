@@ -8,7 +8,7 @@ const sizes = {
   xlg: '1440px'
 }
 
-type Sizes = keyof typeof sizes
+type Sizes = keyof typeof sizes | number
 
 export const row = css`
   display: flow-root;
@@ -26,33 +26,37 @@ export const container = css`
   margin: auto;
 `
 
-export const grid = {
-  lessThan: (size: Sizes, styles: FlattenSimpleInterpolation) => {
-    return css`
-      @media (max-width: ${sizes[size] || size}) {
+function lessThan(size: Sizes) {
+  return (...styles: FlattenSimpleInterpolation) =>
+    css`
+      @media (max-width: ${sizes[size] || `${size}px`}) {
         ${styles}
       }
     `
-  },
+}
 
-  greaterThan: (
-    firstSize: Sizes,
-    lastSize: Sizes,
-    styles: FlattenSimpleInterpolation
-  ) => {
-    return css`
+function greaterThan(firstSize: Sizes, lastSize: Sizes) {
+  return (...styles: FlattenSimpleInterpolation) =>
+    css`
       @media (min-width: ${sizes[firstSize] ||
-        firstSize}) and (max-width: ${sizes[lastSize] || lastSize}) {
+        `${firstSize}px`}) and (max-width: ${sizes[lastSize] ||
+        `${lastSize}px`}) {
         ${styles}
       }
     `
-  },
+}
 
-  between: (size: Sizes, styles: FlattenSimpleInterpolation) => {
-    return css`
-      @media (min-width: ${sizes[size] || size},) {
+function between(size: Sizes) {
+  return (...styles: FlattenSimpleInterpolation) =>
+    css`
+      @media (min-width: ${sizes[size] || `${size}px`}) {
         ${styles}
       }
     `
-  }
+}
+
+export const grid = {
+  lessThan,
+  greaterThan,
+  between
 }

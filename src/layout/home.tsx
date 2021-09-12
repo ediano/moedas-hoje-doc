@@ -1,12 +1,13 @@
 import { ReactNode } from 'react'
 import Head from 'next/head'
 
+import GlobalStyle from '@/styles/global'
 import ScreenFull from '@/components/ScreenFull'
 
 import { site } from '@/config/site'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
-import { SectionScreenFull } from '@/types/content'
+import HeaderHome from '@/components/HeaderHome'
+import Footer from '@/components/Footer'
+import { SectionScreenFull } from '@/types/home'
 
 type Props = {
   children: ReactNode
@@ -22,11 +23,13 @@ export const Home = ({ children, screenFull }: Props) => {
         </title>
       </Head>
 
-      <Header>
-        <ScreenFull {...screenFull} />
-      </Header>
+      <GlobalStyle />
 
-      {children}
+      <HeaderHome>
+        <ScreenFull {...screenFull} />
+      </HeaderHome>
+
+      <main>{children}</main>
 
       <Footer />
     </>

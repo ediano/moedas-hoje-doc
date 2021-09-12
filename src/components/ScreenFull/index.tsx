@@ -1,8 +1,9 @@
 import ReactMarkdown from 'react-markdown'
+import Link from 'next/link'
 
 import Image from '@/components/Image'
 
-import { SectionScreenFull } from 'src/types/content'
+import { SectionScreenFull } from 'src/types/home'
 
 import * as S from './styles'
 import React from 'react'
@@ -34,7 +35,9 @@ const ScreenFull = ({
         <S.Content>
           <h1>{catchphrase}</h1>
           <ReactMarkdown children={description} />
-          <S.Button href={pageUrl}>{button}</S.Button>
+          <Link href={pageUrl} passHref>
+            <S.Button as="a">{button}</S.Button>
+          </Link>
         </S.Content>
       </S.Wrapper>
     </S.Container>

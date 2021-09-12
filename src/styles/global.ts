@@ -1,6 +1,11 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
+import { grid } from './layout'
 
-export default createGlobalStyle`
+type Props = {
+  layout?: 'home' | 'pages'
+}
+
+export default createGlobalStyle<Props>`
   *, *:before, *:after {
     margin: 0;
     padding: 0;
@@ -33,5 +38,40 @@ export default createGlobalStyle`
   button,
   code {
     font-family: ${props => props.theme.fonts.family};
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  p + p {
+     ${({ theme }) => css`
+       margin-top: ${theme.spacing.md};
+     `};
+  }
+
+  ${({ layout }) =>
+    layout === 'pages' &&
+    css`
+      header,
+      main,
+      footer {
+        padding-left: 200px;
+      }
+
+      ${grid.lessThan('lg')(css`
+        header,
+        main,
+        footer {
+          padding-left: 0;
+        }
+      `)}
+    `}
+
+  pre {
+    ${({ theme }) => css`
+      margin: ${theme.spacing.md} 0 !important;
+    `}
   }
 `
