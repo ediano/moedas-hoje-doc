@@ -10,14 +10,15 @@ type Props = {
   code: string
   lang?: string
   type?: string
+  maxHeight?: string
 }
 
-const Code = ({ code, lang, type }: Props) => {
+const Code = ({ code, lang = 'json', type, maxHeight }: Props) => {
   const [typeOfStructure, setTypeOfStructure] = useState('')
 
   useEffect(() => {
     prismjs.highlightAll()
-  }, [])
+  }, [code])
 
   useEffect(() => {
     if (type) setTypeOfStructure(`${type} : ${lang.toLocaleUpperCase()}`)
@@ -29,11 +30,11 @@ const Code = ({ code, lang, type }: Props) => {
       {lang ? (
         <>
           {lang && <S.Lang>{typeOfStructure}</S.Lang>}
-          <pre className={`highlight language-${lang}`}>
-            <code className={`language-${lang}`}>
+          <S.Pre maxHeight={maxHeight} className={`highlight language-${lang}`}>
+            <S.Code className={`language-${lang}`}>
               {JSON.stringify(code, null, 2)}
-            </code>
-          </pre>
+            </S.Code>
+          </S.Pre>
         </>
       ) : (
         <S.CodeNone className="language-none">{code}</S.CodeNone>

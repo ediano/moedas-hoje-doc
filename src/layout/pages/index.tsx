@@ -27,9 +27,9 @@ export const Pages = ({ title, children }: Props) => {
 
       <Header />
 
-      <main>
+      <S.Main>
         <S.Wrapper>{children}</S.Wrapper>
-      </main>
+      </S.Main>
 
       <Footer />
     </>

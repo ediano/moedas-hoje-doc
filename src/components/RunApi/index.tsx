@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { FormHTMLAttributes, ReactNode } from 'react'
 import { baseURL } from 'services/axios'
 
 import * as S from './styles'
@@ -10,11 +10,11 @@ type Props = {
   patchUrl?: string
   query?: string
   children?: ReactNode
-}
+} & FormHTMLAttributes<HTMLFormElement>
 
-const RunApi = ({ method, patchUrl, query, children }: Props) => {
+const RunApi = ({ method, patchUrl, query, children, onSubmit }: Props) => {
   return (
-    <S.Container>
+    <S.Container onSubmit={onSubmit}>
       <S.Content>
         <S.Method>{method}</S.Method> {baseURL}
         {patchUrl && `/${patchUrl}`}

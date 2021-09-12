@@ -1,8 +1,6 @@
 ---
 title: Introdução
 subtitle: Sejam-bem vindos
-versions:
-    - v1: 'v1'
 github: 'github'
 ---
 
