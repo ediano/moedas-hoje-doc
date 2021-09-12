@@ -28,7 +28,7 @@ const Ticker = ({
 }: Props) => {
   const [data, setData] = useState(dataApi)
   const inputRef = useRef<HTMLInputElement>(null)
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState(symbol)
 
   const handleChangeInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -41,12 +41,10 @@ const Ticker = ({
   const handleSubmit = useCallback(
     async (event: FormEvent) => {
       event.preventDefault()
-      const response = await api.get(
-        `${versions}/${patchUrl}?${symbol}${query && '&' + query}`
-      )
+      const response = await api.get(`${versions}/${patchUrl}?${query}`)
       setData(response.data)
     },
-    [versions, patchUrl, symbol, query]
+    [versions, patchUrl, query]
   )
 
   return (
@@ -59,7 +57,7 @@ const Ticker = ({
         onSubmit={handleSubmit}
         method="GET"
         patchUrl={`${versions}/${patchUrl}`}
-        query={`${symbol}${query && '&' + query}`}
+        query={query}
       >
         <Input
           ref={inputRef}
