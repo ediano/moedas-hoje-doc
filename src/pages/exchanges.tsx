@@ -3,36 +3,38 @@ import ReactMarkdown from 'react-markdown'
 
 import { Pages } from 'layout/pages'
 import { AttributesMarkdown } from 'types/markdown'
-import { IntroductionProps } from 'types/pages'
+import { ExchangesPageProps } from 'types/pages'
 
+import Title from 'components/Title'
 import Code from 'components/Code'
 import RunApi from 'components/RunApi'
 
 import { api } from 'services/axios'
 
-import * as S from 'styles/pages/introducao'
+type Props = ExchangesPageProps
 
-type Props = IntroductionProps
-
-const Exchanges = ({ title, subtitle, body, dataApi }: Props) => {
+const Exchanges = ({ title, body, versions, patchUrl, dataApi }: Props) => {
   return (
     <Pages title={title}>
-      <S.Title>{subtitle}</S.Title>
+      <Title title={title} />
+
       <ReactMarkdown children={body} />
 
-      <RunApi method="GET" />
+      <RunApi method="GET" patchUrl={`${versions}/${patchUrl}`} />
 
-      <Code code={dataApi} lang="json" type="Object" />
+      <Code code={dataApi} type="Object" maxHeight="500px" />
     </Pages>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await api.get('')
-
   const { attributes, body } = (await import(
-    'content/pages/introduction.md'
-  )) as AttributesMarkdown<IntroductionProps>
+    'content/pages/exchanges.md'
+  )) as AttributesMarkdown<ExchangesPageProps>
+
+  const response = await api.get(
+    `${attributes.versions}/${attributes.patchUrl}`
+  )
 
   return {
     props: { ...attributes, body, dataApi: response.data }

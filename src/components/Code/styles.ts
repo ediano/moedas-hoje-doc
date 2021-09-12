@@ -26,3 +26,16 @@ export const CodeNone = styled.code`
     padding: ${theme.spacing.xxs} !important;
   `}
 `
+
+export const Pre = styled.pre<{ maxHeight?: string }>`
+  ${({ theme, maxHeight }) => css`
+    max-height: ${maxHeight};
+    padding: ${theme.spacing.lg} !important;
+  `}
+`
+
+export const Code = styled.code`
+  ${({ theme }) => css`
+    font-size: ${theme.fonts.sizes.sm} !important;
+  `}
+`

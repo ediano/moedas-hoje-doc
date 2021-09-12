@@ -2,7 +2,6 @@ import React, {
   useState,
   forwardRef,
   InputHTMLAttributes,
-  MutableRefObject,
   ReactNode
 } from 'react'
 
@@ -17,9 +16,9 @@ type Props = {
   children?: ReactNode
 } & InputProps
 
-const Input = (
+const Input: React.ForwardRefRenderFunction<HTMLInputElement, Props> = (
   { isLabel, name, placeholder, children, ...props }: Props,
-  ref: MutableRefObject<HTMLInputElement>
+  ref
 ) => {
   const [isFocus, setIsFocus] = useState(false)
 
