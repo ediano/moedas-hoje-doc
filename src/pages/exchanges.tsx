@@ -14,13 +14,13 @@ import * as S from 'styles/pages/introducao'
 
 type Props = IntroductionProps
 
-const Exchanges = ({ title, baseUrl, subtitle, body, dataApi }: Props) => {
+const Exchanges = ({ title, subtitle, body, dataApi }: Props) => {
   return (
     <Pages title={title}>
       <S.Title>{subtitle}</S.Title>
       <ReactMarkdown children={body} />
 
-      <RunApi method="GET" url={baseUrl}></RunApi>
+      <RunApi method="GET" />
 
       <Code code={dataApi} lang="json" type="Object" />
     </Pages>

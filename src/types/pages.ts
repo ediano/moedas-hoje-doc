@@ -5,7 +5,7 @@ type IntroductionVersionsProps<T> = {
 export type IntroductionProps = {
   title: string
   subtitle: string
-  baseUrl: string
+  patch: string
   dataApi: string
   versions: IntroductionVersionsProps<Object>
   body: string

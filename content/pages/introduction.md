@@ -1,7 +1,6 @@
 ---
 title: Introdução
 subtitle: Sejam-bem vindos
-baseUrl: 'https://api.moedashoje.com.br'
 versions:
     - v1: 'v1'
 github: 'github'
