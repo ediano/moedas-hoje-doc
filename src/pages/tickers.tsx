@@ -11,11 +11,17 @@ import Code from 'components/Code'
 import RunApi from 'components/RunApi'
 
 import Input from 'components/Input'
+import Select from 'components/Select'
 import ButtonRun from 'components/ButtonRun'
 
 import { api } from 'services/axios'
 
 type Props = TickersPageProps
+
+const options = [
+  { label: 'Exchange', value: 'source' },
+  { label: 'Tipo de ativo', value: 'asset' }
+]
 
 const Tickers = ({
   title,
@@ -29,10 +35,23 @@ const Tickers = ({
   const [data, setData] = useState(dataApi)
   const inputRef = useRef<HTMLInputElement>(null)
   const [query, setQuery] = useState('')
+  const [option, setOption] = useState('')
 
   const handleChangeInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const { value } = event.target
+
+      if (option) setQuery(`${option + '=' + value}`)
+
+      if (!option) setQuery('invalid option')
+    },
+    [option]
+  )
+
+  const handleChangeSelect = useCallback(
+    (event: ChangeEvent<HTMLSelectElement>) => {
+      const { value } = event.target
+      setOption(value)
       setQuery(value)
     },
     []
@@ -59,10 +78,11 @@ const Tickers = ({
         patchUrl={`${versions}/${patchUrl}`}
         query={query}
       >
+        <Select name="query" options={options} onChange={handleChangeSelect} />
         <Input
           ref={inputRef}
           name="tickers"
-          placeholder={`Query example: ${source} | ${asset}`}
+          placeholder={`Query example optional: ${source} | ${asset}`}
           isLabel
           onChange={handleChangeInput}
         />
