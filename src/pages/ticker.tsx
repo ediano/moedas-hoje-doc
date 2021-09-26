@@ -26,14 +26,22 @@ const Ticker = ({
   symbol,
   symbolSource
 }: Props) => {
-  const [data, setData] = useState(dataApi)
-  const inputRef = useRef<HTMLInputElement>(null)
-  const [query, setQuery] = useState(symbol)
+  const [data, setData] = useState<any>(dataApi)
+  const symbolRef = useRef<HTMLInputElement>(null)
+  const symbolSourceRef = useRef<HTMLInputElement>(null)
+  const [query, setQuery] = useState({ symbol, source: '' })
 
   const handleChangeInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      const { value } = event.target
-      setQuery(value)
+      const { name, value } = event.target
+
+      setQuery(state => {
+        if (name === 'source') {
+          return { ...state, source: value ? `source=${value}` : '' }
+        }
+
+        return { ...state, symbol: value ? `symbol=${value}` : '' }
+      })
     },
     []
   )
@@ -41,8 +49,16 @@ const Ticker = ({
   const handleSubmit = useCallback(
     async (event: FormEvent) => {
       event.preventDefault()
-      const response = await api.get(`${versions}/${patchUrl}?${query}`)
-      setData(response.data)
+      try {
+        const response = await api.get(
+          `${versions}/${patchUrl}${query.symbol && '?' + query.symbol}${
+            query.source && '&' + query.source
+          }`
+        )
+        setData(response.data)
+      } catch (error) {
+        setData(error)
+      }
     },
     [versions, patchUrl, query]
   )
@@ -57,20 +73,28 @@ const Ticker = ({
         onSubmit={handleSubmit}
         method="GET"
         patchUrl={`${versions}/${patchUrl}`}
-        query={query}
+        query={`${query.symbol}${query.source ? '&' + query.source : ''}`}
       >
         <Input
-          ref={inputRef}
-          name="ticker"
-          placeholder={`Query example: ${symbol} | ${symbolSource}`}
+          ref={symbolRef}
+          name="symbol"
+          placeholder={`Query example: ${symbol}`}
           isLabel
           onChange={handleChangeInput}
-        >
-          <ButtonRun type="submit">Run</ButtonRun>
-        </Input>
+        />
+
+        <Input
+          ref={symbolSourceRef}
+          name="source"
+          placeholder={`Query example: ${symbolSource}`}
+          isLabel
+          onChange={handleChangeInput}
+        />
+
+        <ButtonRun type="submit">Run</ButtonRun>
       </RunApi>
 
-      <Code code={data} type="Array<Object> | Object" maxHeight="500px" />
+      <Code code={data} type="Array<Object> | Object" maxHeight="750px" />
     </Pages>
   )
 }

@@ -16,12 +16,15 @@ const RunApi = ({ method, patchUrl, query, children, onSubmit }: Props) => {
   return (
     <S.Container onSubmit={onSubmit}>
       <S.Content>
-        <S.Method>{method}</S.Method> {baseURL}
-        {patchUrl && `/${patchUrl}`}
-        {query && <S.Query>?{query}</S.Query>}
+        <S.Method>{method}</S.Method>
+        <S.TextUrl>
+          {baseURL}
+          {patchUrl && `/${patchUrl}`}
+          {query && <S.Query>?{query}</S.Query>}
+        </S.TextUrl>
       </S.Content>
 
-      {children}
+      <S.Wrapper>{children}</S.Wrapper>
     </S.Container>
   )
 }

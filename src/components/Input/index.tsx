@@ -8,11 +8,10 @@ type Props = {
   placeholder: string
   name: string
   isLabel?: boolean
-  children?: React.ReactNode
 } & InputProps
 
 const Input = (
-  { isLabel, name, placeholder, children, ...props }: Props,
+  { isLabel, name, placeholder, ...props }: Props,
   ref: React.ForwardedRef<HTMLInputElement>
 ) => {
   const inputRef = ref as React.MutableRefObject<HTMLInputElement>
@@ -36,8 +35,6 @@ const Input = (
         ref={ref}
         {...props}
       />
-
-      {children}
     </S.Container>
   )
 }

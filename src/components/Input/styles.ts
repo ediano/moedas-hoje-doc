@@ -9,6 +9,7 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
 
   ${({ theme, isLabel }) => css`
     background: ${theme.colors.white};
@@ -20,7 +21,7 @@ export const Container = styled.div<ContainerProps>`
     css`
       border: 1px solid ${theme.colors.shadow};
     `}
-  `}
+  `};
 `
 
 type LabelProps = {

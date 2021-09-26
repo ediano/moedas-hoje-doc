@@ -65,9 +65,8 @@ const Tickers = ({
           placeholder={`Query example: ${source} | ${asset}`}
           isLabel
           onChange={handleChangeInput}
-        >
-          <ButtonRun type="submit">Run</ButtonRun>
-        </Input>
+        />
+        <ButtonRun type="submit">Run</ButtonRun>
       </RunApi>
 
       <Code code={data} type="Array<Object> | Object" maxHeight="500px" />
