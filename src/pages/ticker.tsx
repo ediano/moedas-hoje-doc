@@ -74,6 +74,7 @@ const Ticker = ({
         method="GET"
         patchUrl={`${versions}/${patchUrl}`}
         query={`${query.symbol}${query.source ? '&' + query.source : ''}`}
+        style={{ marginTop: '50px' }}
       >
         <Input
           ref={symbolRef}

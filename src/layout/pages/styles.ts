@@ -16,7 +16,7 @@ export const Main = styled.main`
     h4,
     h5,
     h6 {
-      margin-top: ${theme.spacing.md};
+      margin-top: ${theme.spacing.xxl};
       margin-bottom: ${theme.spacing.xs};
     }
 
@@ -46,6 +46,7 @@ export const Main = styled.main`
       border-left: ${theme.spacing.xxs} solid ${theme.colors.primary};
       padding: ${theme.spacing.sm};
       margin-top: ${theme.spacing.sm};
+      margin-bottom: ${theme.spacing.sm};
     }
   `}
 `
