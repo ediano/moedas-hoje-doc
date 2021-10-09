@@ -82,7 +82,7 @@ const Tickers = ({
         <Input
           ref={inputRef}
           name="tickers"
-          placeholder={`Query example optional: ${source} | ${asset}`}
+          placeholder={`Query example (opcional): ${source} | ${asset}`}
           isLabel
           onChange={handleChangeInput}
         />
