@@ -25,9 +25,7 @@ export const Home = ({ children, screenFull }: Props) => {
 
       <GlobalStyle />
 
-      <HeaderHome>
-        <ScreenFull {...screenFull} />
-      </HeaderHome>
+      <HeaderHome>{screenFull && <ScreenFull {...screenFull} />}</HeaderHome>
 
       <main>{children}</main>
 

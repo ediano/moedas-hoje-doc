@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import Image from 'components/Image'
 
-import { SectionScreenFull } from 'src/types/home'
+import { SectionScreenFull } from 'types/home'
 
 import * as S from './styles'
 import React from 'react'

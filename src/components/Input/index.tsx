@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  forwardRef,
-  InputHTMLAttributes,
-  ReactNode
-} from 'react'
+import React, { useState, forwardRef, InputHTMLAttributes } from 'react'
 
 import * as S from './styles'
 
@@ -13,19 +8,19 @@ type Props = {
   placeholder: string
   name: string
   isLabel?: boolean
-  children?: ReactNode
 } & InputProps
 
-const Input: React.ForwardRefRenderFunction<HTMLInputElement, Props> = (
-  { isLabel, name, placeholder, children, ...props }: Props,
-  ref
+const Input = (
+  { isLabel, name, placeholder, ...props }: Props,
+  ref: React.ForwardedRef<HTMLInputElement>
 ) => {
+  const inputRef = ref as React.MutableRefObject<HTMLInputElement>
   const [isFocus, setIsFocus] = useState(false)
 
   return (
     <S.Container isLabel>
       {isLabel && (
-        <S.Label htmlFor={name} isFocus={isFocus || !!ref?.current?.value}>
+        <S.Label htmlFor={name} isFocus={isFocus || !!inputRef?.current?.value}>
           {placeholder}
         </S.Label>
       )}
@@ -40,8 +35,6 @@ const Input: React.ForwardRefRenderFunction<HTMLInputElement, Props> = (
         ref={ref}
         {...props}
       />
-
-      {children}
     </S.Container>
   )
 }

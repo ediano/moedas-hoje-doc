@@ -12,16 +12,26 @@ type Props = {
   children?: ReactNode
 } & FormHTMLAttributes<HTMLFormElement>
 
-const RunApi = ({ method, patchUrl, query, children, onSubmit }: Props) => {
+const RunApi = ({
+  method,
+  patchUrl,
+  query,
+  children,
+  onSubmit,
+  style
+}: Props) => {
   return (
-    <S.Container onSubmit={onSubmit}>
+    <S.Container onSubmit={onSubmit} style={style}>
       <S.Content>
-        <S.Method>{method}</S.Method> {baseURL}
-        {patchUrl && `/${patchUrl}`}
-        {query && <S.Query>?{query}</S.Query>}
+        <S.Method>{method}</S.Method>
+        <S.TextUrl>
+          {baseURL}
+          {patchUrl && `/${patchUrl}`}
+          {query && <S.Query>?{query}</S.Query>}
+        </S.TextUrl>
       </S.Content>
 
-      {children}
+      <S.Wrapper>{children}</S.Wrapper>
     </S.Container>
   )
 }

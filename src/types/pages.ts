@@ -22,3 +22,13 @@ export type TickersPageProps = {
   asset: string
   body: string
 }
+
+export type TickerPageProps = {
+  title: string
+  versions: string
+  patchUrl: string
+  dataApi: string
+  symbol: string
+  symbolSource: string
+  body: string
+}

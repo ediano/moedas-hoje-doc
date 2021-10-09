@@ -5,10 +5,6 @@ type ContainerProps = {
 }
 
 export const Container = styled.div<ContainerProps>`
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   width: 100%;
 
   ${({ theme, isLabel }) => css`
@@ -24,31 +20,12 @@ export const Container = styled.div<ContainerProps>`
   `};
 `
 
-type LabelProps = {
-  isFocus?: boolean
-}
-
-export const Label = styled.label<LabelProps>`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: 0.2s;
-
-  ${({ theme, isFocus }) => css`
-    background: ${theme.colors.white};
-
-    ${isFocus &&
-    css`
-      top: 0;
-    `}
-  `}
-`
-
-export const Input = styled.input`
+export const Select = styled.select`
   width: 100%;
   height: 32px;
 
   ${({ theme }) => css`
+    background: ${theme.colors.white};
     font-size: ${theme.fonts.sizes.xs};
   `}
 `
