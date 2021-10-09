@@ -2,5 +2,6 @@ export const listLinks = [
   { title: 'Introdução', attributes: { href: '/introducao' } },
   { title: 'Exchanges', attributes: { href: '/exchanges' } },
   { title: 'Tickers', attributes: { href: '/tickers' } },
-  { title: 'Ticker', attributes: { href: '/ticker' } }
+  { title: 'Ticker', attributes: { href: '/ticker' } },
+  { title: 'Pares Disponíveis', attributes: { href: '/available-pairs' } }
 ]

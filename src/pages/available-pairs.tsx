@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown'
 
 import { Pages } from 'layout/pages'
 import { AttributesMarkdown } from 'types/markdown'
-import { TickerPageProps } from 'types/pages'
+import { AvailablePairsProps } from 'types/pages'
 
 import Title from 'components/Title'
 import Code from 'components/Code'
@@ -15,32 +15,26 @@ import ButtonRun from 'components/ButtonRun'
 
 import { api } from 'services/axios'
 
-type Props = TickerPageProps
+type Props = AvailablePairsProps
 
-const Ticker = ({
+const AvailablePairs = ({
   title,
   body,
   versions,
   patchUrl,
   dataApi,
-  symbol,
-  symbolSource
+  source
 }: Props) => {
   const [data, setData] = useState<any>(dataApi)
-  const symbolRef = useRef<HTMLInputElement>(null)
-  const symbolSourceRef = useRef<HTMLInputElement>(null)
-  const [query, setQuery] = useState({ symbol, source: '' })
+  const sourceRef = useRef<HTMLInputElement>(null)
+  const [query, setQuery] = useState({ source: '' })
 
   const handleChangeInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      const { name, value } = event.target
+      const { value } = event.target
 
       setQuery(state => {
-        if (name === 'source') {
-          return { ...state, source: value ? `source=${value}` : '' }
-        }
-
-        return { ...state, symbol: value ? `symbol=${value}` : '' }
+        return { ...state, source: value ? `source=${value}` : '' }
       })
     },
     []
@@ -51,9 +45,7 @@ const Ticker = ({
       event.preventDefault()
       try {
         const response = await api.get(
-          `${versions}/${patchUrl}${query.symbol && '?' + query.symbol}${
-            query.source && '&' + query.source
-          }`
+          `${versions}/${patchUrl}${query.source && '?' + query.source}`
         )
         setData(response.data)
       } catch (error) {
@@ -73,21 +65,13 @@ const Ticker = ({
         onSubmit={handleSubmit}
         method="GET"
         patchUrl={`${versions}/${patchUrl}`}
-        query={`${query.symbol}${query.source ? '&' + query.source : ''}`}
+        query={`${query.source ? query.source : ''}`}
         style={{ marginTop: '50px' }}
       >
         <Input
-          ref={symbolRef}
-          name="symbol"
-          placeholder={`Query example: ${symbol}`}
-          isLabel
-          onChange={handleChangeInput}
-        />
-
-        <Input
-          ref={symbolSourceRef}
+          ref={sourceRef}
           name="source"
-          placeholder={`Query example (opcional): ${symbolSource}`}
+          placeholder={`Query example (opcional): ${source}`}
           isLabel
           onChange={handleChangeInput}
         />
@@ -102,11 +86,11 @@ const Ticker = ({
 
 export const getStaticProps: GetStaticProps = async () => {
   const { attributes, body } = (await import(
-    'content/pages/ticker.md'
-  )) as AttributesMarkdown<TickerPageProps>
+    'content/pages/available-pairs.md'
+  )) as AttributesMarkdown<AvailablePairsProps>
 
   const response = await api.get(
-    `${attributes.versions}/${attributes.patchUrl}?${attributes.symbol}`
+    `${attributes.versions}/${attributes.patchUrl}`
   )
 
   return {
@@ -114,4 +98,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default Ticker
+export default AvailablePairs

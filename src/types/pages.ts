@@ -32,3 +32,12 @@ export type TickerPageProps = {
   symbolSource: string
   body: string
 }
+
+export type AvailablePairsProps = {
+  title: string
+  versions: string
+  patchUrl: string
+  dataApi: string
+  source: string
+  body: string
+}
