@@ -19,7 +19,7 @@ export const Home = ({ children, screenFull }: Props) => {
     <>
       <Head>
         <title>
-          {site.description} | {site.title}
+          {site.title} | {site.name}
         </title>
       </Head>
 

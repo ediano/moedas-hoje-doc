@@ -19,7 +19,7 @@ export const Pages = ({ title, children }: Props) => {
     <>
       <Head>
         <title>
-          {title} - {site.description} | {site.title}
+          {title} | {site.title} | {site.name}
         </title>
       </Head>
 
