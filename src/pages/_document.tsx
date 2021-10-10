@@ -7,6 +7,8 @@ import Document, {
   NextScript
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import GoogleAnalytics from 'components/GoogleAnalytics'
+import GoogleAdsense from 'components/GoogleAdsense'
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -40,17 +42,15 @@ export default class MyDocument extends Document {
       <Html lang="pt_BR">
         <Head>
           <meta charSet="utf-8" />
+          <GoogleAnalytics />
         </Head>
+
         <body>
           <Main />
           <NextScript />
         </body>
 
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6753037893956918"
-          crossOrigin="anonymous"
-        ></script>
+        <GoogleAdsense />
       </Html>
     )
   }
