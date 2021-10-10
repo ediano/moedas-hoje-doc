@@ -1,6 +1,7 @@
 import { useRef, useCallback, useState, ChangeEvent, FormEvent } from 'react'
 import { GetStaticProps } from 'next'
 import ReactMarkdown from 'react-markdown'
+import { NextSeo } from 'next-seo'
 
 import { Pages } from 'layout/pages'
 import { AttributesMarkdown } from 'types/markdown'
@@ -13,6 +14,8 @@ import RunApi from 'components/RunApi'
 import Input from 'components/Input'
 import ButtonRun from 'components/ButtonRun'
 
+import { site } from 'config/site'
+import { getUrl } from 'utils/getUrl'
 import { api } from 'services/axios'
 
 type Props = AvailablePairsProps
@@ -23,7 +26,8 @@ const AvailablePairs = ({
   versions,
   patchUrl,
   dataApi,
-  source
+  source,
+  description
 }: Props) => {
   const [data, setData] = useState<any>(dataApi)
   const sourceRef = useRef<HTMLInputElement>(null)
@@ -56,31 +60,44 @@ const AvailablePairs = ({
   )
 
   return (
-    <Pages title={title}>
-      <Title title={title} />
+    <>
+      <NextSeo
+        title={`${title} | ${site.name}`}
+        canonical={`${site.url}/pares-disponiveis`}
+        openGraph={{
+          title: `${title} | ${site.name}`,
+          description,
+          site_name: `${title} | ${site.name}`,
+          url: getUrl('/pares-disponiveis')
+        }}
+      />
 
-      <ReactMarkdown children={body} />
+      <Pages title={title}>
+        <Title title={title} />
 
-      <RunApi
-        onSubmit={handleSubmit}
-        method="GET"
-        patchUrl={`${versions}/${patchUrl}`}
-        query={`${query.source ? query.source : ''}`}
-        style={{ marginTop: '50px' }}
-      >
-        <Input
-          ref={sourceRef}
-          name="source"
-          placeholder={`Query example (opcional): ${source}`}
-          isLabel
-          onChange={handleChangeInput}
-        />
+        <ReactMarkdown children={body} />
 
-        <ButtonRun type="submit">Run</ButtonRun>
-      </RunApi>
+        <RunApi
+          onSubmit={handleSubmit}
+          method="GET"
+          patchUrl={`${versions}/${patchUrl}`}
+          query={`${query.source ? query.source : ''}`}
+          style={{ marginTop: '50px' }}
+        >
+          <Input
+            ref={sourceRef}
+            name="source"
+            placeholder={`Query example (opcional): ${source}`}
+            isLabel
+            onChange={handleChangeInput}
+          />
 
-      <Code code={data} type="Array<Object> | Object" maxHeight="750px" />
-    </Pages>
+          <ButtonRun type="submit">Run</ButtonRun>
+        </RunApi>
+
+        <Code code={data} type="Array<Object> | Object" maxHeight="750px" />
+      </Pages>
+    </>
   )
 }
 

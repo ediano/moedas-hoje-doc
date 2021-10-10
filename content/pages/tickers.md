@@ -4,6 +4,7 @@ versions: 'v1'
 patchUrl: 'coins/tickers'
 source: 'source=novadax.com'
 asset: 'asset=traditional'
+description: 'Lista todas as fontes e os valores de seus pares de moedas, ou valores por exchange, ou valores por tipo de ativo'
 ---
 
 Listando pares de moedas. Um de nossos principais recursos é listar todos os pares de moedas e exchanges de uma unica vez.

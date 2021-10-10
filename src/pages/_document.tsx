@@ -37,14 +37,9 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="pt">
+      <Html lang="pt_BR">
         <Head>
           <meta charSet="utf-8" />
-
-          <meta
-            name="google-site-verification"
-            content="kdtNSZUpZOllXE_2LYmxADhDm5lDCPxpwaK4629ul5c"
-          />
         </Head>
         <body>
           <Main />

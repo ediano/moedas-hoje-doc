@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next'
 import ReactMarkdown from 'react-markdown'
+import { NextSeo } from 'next-seo'
 
 import { Pages } from 'layout/pages'
 import { AttributesMarkdown } from 'types/markdown'
@@ -9,20 +10,41 @@ import Code from 'components/Code'
 import RunApi from 'components/RunApi'
 import Title from 'components/Title'
 
+import { site } from 'config/site'
+import { getUrl } from 'utils/getUrl'
 import { api } from 'services/axios'
 
 type Props = IntroductionPageProps
 
-const Introducao = ({ title, subtitle, body, dataApi }: Props) => {
+const Introduction = ({
+  title,
+  subtitle,
+  body,
+  dataApi,
+  description
+}: Props) => {
   return (
-    <Pages title={title}>
-      <Title title={subtitle} />
-      <ReactMarkdown children={body} />
+    <>
+      <NextSeo
+        title={`${title} | ${site.name}`}
+        canonical={`${site.url}/introducao`}
+        openGraph={{
+          title: `${title} | ${site.name}`,
+          description,
+          site_name: `${title} | ${site.name}`,
+          url: getUrl('/introducao')
+        }}
+      />
 
-      <RunApi method="GET" />
+      <Pages title={title}>
+        <Title title={subtitle} />
+        <ReactMarkdown children={body} />
 
-      <Code code={dataApi} type="Object" />
-    </Pages>
+        <RunApi method="GET" />
+
+        <Code code={dataApi} type="Object" />
+      </Pages>
+    </>
   )
 }
 
@@ -38,4 +60,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default Introducao
+export default Introduction
