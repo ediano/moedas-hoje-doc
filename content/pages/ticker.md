@@ -4,6 +4,7 @@ versions: 'v1'
 patchUrl: 'coins/ticker'
 symbol: 'symbol=BTC_BRL'
 symbolSource: 'source=novadax.com'
+description: 'Lista todos as fontes e o valor de um par específico de moedas ou um par de moedas específico por exchange'
 ---
 
 É possível listar um par de moeda especifico ou a fonte de onde este par é listado.

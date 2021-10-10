@@ -1,6 +1,7 @@
 import { useRef, useCallback, useState, ChangeEvent, FormEvent } from 'react'
 import { GetStaticProps } from 'next'
 import ReactMarkdown from 'react-markdown'
+import { NextSeo } from 'next-seo'
 
 import { Pages } from 'layout/pages'
 import { AttributesMarkdown } from 'types/markdown'
@@ -13,6 +14,8 @@ import RunApi from 'components/RunApi'
 import Input from 'components/Input'
 import ButtonRun from 'components/ButtonRun'
 
+import { site } from 'config/site'
+import { getUrl } from 'utils/getUrl'
 import { api } from 'services/axios'
 
 type Props = TickerPageProps
@@ -24,7 +27,8 @@ const Ticker = ({
   patchUrl,
   dataApi,
   symbol,
-  symbolSource
+  symbolSource,
+  description
 }: Props) => {
   const [data, setData] = useState<any>(dataApi)
   const symbolRef = useRef<HTMLInputElement>(null)
@@ -64,39 +68,52 @@ const Ticker = ({
   )
 
   return (
-    <Pages title={title}>
-      <Title title={title} />
+    <>
+      <NextSeo
+        title={`${title} | ${site.name}`}
+        canonical={`${site.url}/ticker`}
+        openGraph={{
+          title: `${title} | ${site.name}`,
+          description,
+          site_name: `${title} | ${site.name}`,
+          url: getUrl('/ticker')
+        }}
+      />
 
-      <ReactMarkdown children={body} />
+      <Pages title={title}>
+        <Title title={title} />
 
-      <RunApi
-        onSubmit={handleSubmit}
-        method="GET"
-        patchUrl={`${versions}/${patchUrl}`}
-        query={`${query.symbol}${query.source ? '&' + query.source : ''}`}
-        style={{ marginTop: '50px' }}
-      >
-        <Input
-          ref={symbolRef}
-          name="symbol"
-          placeholder={`Query example: ${symbol}`}
-          isLabel
-          onChange={handleChangeInput}
-        />
+        <ReactMarkdown children={body} />
 
-        <Input
-          ref={symbolSourceRef}
-          name="source"
-          placeholder={`Query example (opcional): ${symbolSource}`}
-          isLabel
-          onChange={handleChangeInput}
-        />
+        <RunApi
+          onSubmit={handleSubmit}
+          method="GET"
+          patchUrl={`${versions}/${patchUrl}`}
+          query={`${query.symbol}${query.source ? '&' + query.source : ''}`}
+          style={{ marginTop: '50px' }}
+        >
+          <Input
+            ref={symbolRef}
+            name="symbol"
+            placeholder={`Query example: ${symbol}`}
+            isLabel
+            onChange={handleChangeInput}
+          />
 
-        <ButtonRun type="submit">Run</ButtonRun>
-      </RunApi>
+          <Input
+            ref={symbolSourceRef}
+            name="source"
+            placeholder={`Query example (opcional): ${symbolSource}`}
+            isLabel
+            onChange={handleChangeInput}
+          />
 
-      <Code code={data} type="Array<Object> | Object" maxHeight="750px" />
-    </Pages>
+          <ButtonRun type="submit">Run</ButtonRun>
+        </RunApi>
+
+        <Code code={data} type="Array<Object> | Object" maxHeight="750px" />
+      </Pages>
+    </>
   )
 }
 

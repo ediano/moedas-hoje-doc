@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import { NextSeo } from 'next-seo'
 
 import { Home } from 'layout/home'
 import FocusAndIdea from 'components/Home/FocusAndIdea'
@@ -14,6 +15,8 @@ import {
   SectionDeployAndCdn
 } from 'types/home'
 
+import { site } from 'config/site'
+
 type Props = HomeProps
 
 const Index = ({
@@ -23,11 +26,24 @@ const Index = ({
   deployAndCdn
 }: Props) => {
   return (
-    <Home screenFull={screenFull}>
-      <FocusAndIdea {...focusAndIdea} />
-      <DeployAndCdn {...deployAndCdn} />
-      <LimitAndDelay {...limitAndDelay} />
-    </Home>
+    <>
+      <NextSeo
+        title={`${site.title} | ${site.name}`}
+        canonical={site.url}
+        openGraph={{
+          title: `${site.title} | ${site.name}`,
+          description: site.description,
+          site_name: site.name,
+          url: site.url
+        }}
+      />
+
+      <Home screenFull={screenFull}>
+        <FocusAndIdea {...focusAndIdea} />
+        <DeployAndCdn {...deployAndCdn} />
+        <LimitAndDelay {...limitAndDelay} />
+      </Home>
+    </>
   )
 }
 

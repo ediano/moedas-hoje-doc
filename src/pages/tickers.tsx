@@ -1,6 +1,7 @@
 import { useRef, useCallback, useState, ChangeEvent, FormEvent } from 'react'
 import { GetStaticProps } from 'next'
 import ReactMarkdown from 'react-markdown'
+import { NextSeo } from 'next-seo'
 
 import { Pages } from 'layout/pages'
 import { AttributesMarkdown } from 'types/markdown'
@@ -14,6 +15,8 @@ import Input from 'components/Input'
 import Select from 'components/Select'
 import ButtonRun from 'components/ButtonRun'
 
+import { site } from 'config/site'
+import { getUrl } from 'utils/getUrl'
 import { api } from 'services/axios'
 
 type Props = TickersPageProps
@@ -30,7 +33,8 @@ const Tickers = ({
   patchUrl,
   dataApi,
   asset,
-  source
+  source,
+  description
 }: Props) => {
   const [data, setData] = useState(dataApi)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -67,30 +71,47 @@ const Tickers = ({
   )
 
   return (
-    <Pages title={title}>
-      <Title title={title} />
+    <>
+      <NextSeo
+        title={`${title} | ${site.name}`}
+        canonical={`${site.url}/tickers`}
+        openGraph={{
+          title: `${title} | ${site.name}`,
+          description,
+          site_name: `${title} | ${site.name}`,
+          url: getUrl('/tickers')
+        }}
+      />
 
-      <ReactMarkdown children={body} />
+      <Pages title={title}>
+        <Title title={title} />
 
-      <RunApi
-        onSubmit={handleSubmit}
-        method="GET"
-        patchUrl={`${versions}/${patchUrl}`}
-        query={query}
-      >
-        <Select name="query" options={options} onChange={handleChangeSelect} />
-        <Input
-          ref={inputRef}
-          name="tickers"
-          placeholder={`Query example (opcional): ${source} | ${asset}`}
-          isLabel
-          onChange={handleChangeInput}
-        />
-        <ButtonRun type="submit">Run</ButtonRun>
-      </RunApi>
+        <ReactMarkdown children={body} />
 
-      <Code code={data} type="Array<Object> | Object" maxHeight="500px" />
-    </Pages>
+        <RunApi
+          onSubmit={handleSubmit}
+          method="GET"
+          patchUrl={`${versions}/${patchUrl}`}
+          query={query}
+        >
+          <Select
+            name="query"
+            options={options}
+            onChange={handleChangeSelect}
+          />
+          <Input
+            ref={inputRef}
+            name="tickers"
+            placeholder={`Query example (opcional): ${source} | ${asset}`}
+            isLabel
+            onChange={handleChangeInput}
+          />
+          <ButtonRun type="submit">Run</ButtonRun>
+        </RunApi>
+
+        <Code code={data} type="Array<Object> | Object" maxHeight="500px" />
+      </Pages>
+    </>
   )
 }
 
