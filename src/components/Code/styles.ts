@@ -28,16 +28,18 @@ export const CodeNone = styled.code`
 `
 
 export const Pre = styled.pre<{ maxHeight?: string }>`
+  overflow-x: auto;
+
   ${({ theme, maxHeight }) => css`
     max-height: ${maxHeight};
     padding: ${theme.spacing.lg} !important;
+    background: ${theme.colors.secondary};
+    code: ${theme.colors.white};
   `}
 `
 
 export const Code = styled.code`
   ${({ theme }) => css`
-    background: ${theme.colors.secondary};
-    code: ${theme.colors.white};
     font-size: ${theme.fonts.sizes.sm} !important;
   `}
 `
