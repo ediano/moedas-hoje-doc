@@ -1,8 +1,4 @@
 import { useState, useEffect } from 'react'
-// import prismjs from 'prismjs'
-// import 'prismjs/themes/prism-tomorrow.css'
-// import 'prismjs/components/prism-json.min'
-// import 'prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js'
 
 import * as S from './styles'
 
@@ -15,10 +11,6 @@ type Props = {
 
 const Code = ({ code, lang = 'json', type, maxHeight }: Props) => {
   const [typeOfStructure, setTypeOfStructure] = useState('')
-
-  //   useEffect(() => {
-  //     prismjs.highlightAll()
-  //   }, [code])
 
   useEffect(() => {
     if (type) setTypeOfStructure(`${type} : ${lang.toLocaleUpperCase()}`)
