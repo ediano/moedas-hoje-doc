@@ -16,9 +16,9 @@ type Props = {
 const Code = ({ code, lang = 'json', type, maxHeight }: Props) => {
   const [typeOfStructure, setTypeOfStructure] = useState('')
 
-//   useEffect(() => {
-//     prismjs.highlightAll()
-//   }, [code])
+  //   useEffect(() => {
+  //     prismjs.highlightAll()
+  //   }, [code])
 
   useEffect(() => {
     if (type) setTypeOfStructure(`${type} : ${lang.toLocaleUpperCase()}`)
