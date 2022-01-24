@@ -34,7 +34,7 @@ export const Pre = styled.pre<{ maxHeight?: string }>`
     max-height: ${maxHeight};
     padding: ${theme.spacing.lg} !important;
     background: ${theme.colors.secondary};
-    code: ${theme.colors.white};
+    color: ${theme.colors.white};
   `}
 `
 
