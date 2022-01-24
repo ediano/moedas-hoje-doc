@@ -36,6 +36,7 @@ export const Pre = styled.pre<{ maxHeight?: string }>`
 
 export const Code = styled.code`
   ${({ theme }) => css`
+    background: ${theme.colors.secondary};
     font-size: ${theme.fonts.sizes.sm} !important;
   `}
 `
